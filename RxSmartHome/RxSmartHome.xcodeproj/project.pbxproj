@@ -244,7 +244,6 @@
 		93137DE125CC145C00402982 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				93137D9C25CC127A00402982 /* ViewController.swift */,
 				93137E2A25CC241C00402982 /* DevicesViewController.swift */,
 			);
 			path = View;
@@ -333,6 +332,7 @@
 				93137DA625CC127B00402982 /* LaunchScreen.storyboard */,
 				93137DA925CC127B00402982 /* Info.plist */,
 				93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */,
+				93137D9C25CC127A00402982 /* ViewController.swift */,
 				93137D9E25CC127A00402982 /* Main.storyboard */,
 				93137DA425CC127B00402982 /* Assets.xcassets */,
 			);

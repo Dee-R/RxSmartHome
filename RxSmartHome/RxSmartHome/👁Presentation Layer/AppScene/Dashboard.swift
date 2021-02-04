@@ -4,10 +4,8 @@
 //
 //  Created by Eddy R on 04/02/2021.
 //
-
 import UIKit
 class Dashboard : UITabBarController, UITabBarControllerDelegate {
-    
     var appDIBuilder = AppDIBuilder(appEnvironment: AppEnvironment())
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +31,6 @@ class Dashboard : UITabBarController, UITabBarControllerDelegate {
         self.viewControllers = [nav_item1, nav_item2] // root of UITabBarController
         self.selectedIndex = 0
     }
-    
     //Delegate methods
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         print("Should select viewController: \(viewController.title ?? "") ?")
