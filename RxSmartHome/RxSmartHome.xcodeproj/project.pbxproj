@@ -51,6 +51,7 @@
 		93137DB925CC127B00402982 /* RxSmartHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSmartHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93137DBD25CC127B00402982 /* RxSmartHomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSmartHomeUITests.swift; sourceTree = "<group>"; };
 		93137DBF25CC127B00402982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93137DFB25CC171D00402982 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +102,14 @@
 		93137D9725CC127A00402982 /* RxSmartHome */ = {
 			isa = PBXGroup;
 			children = (
-				93137D9825CC127A00402982 /* AppDelegate.swift */,
-				93137D9A25CC127A00402982 /* SceneDelegate.swift */,
-				93137D9C25CC127A00402982 /* ViewController.swift */,
-				93137D9E25CC127A00402982 /* Main.storyboard */,
-				93137DA425CC127B00402982 /* Assets.xcassets */,
-				93137DA625CC127B00402982 /* LaunchScreen.storyboard */,
-				93137DA925CC127B00402982 /* Info.plist */,
-				93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */,
+				93137DD225CC136900402982 /* Application */,
+				93137DEB25CC15AD00402982 /* ---------------- */,
+				93137DD325CC137D00402982 /* 👁Presentation Layer */,
+				93137DD425CC138C00402982 /* ⚙️Domain Layer */,
+				93137DD525CC139C00402982 /* 📟Data Layer */,
+				93137DEC25CC15BC00402982 /* ---------------- */,
+				93137DF125CC160200402982 /* Supporting Files */,
+				93137DFA25CC16F900402982 /* TestUI */,
 			);
 			path = RxSmartHome;
 			sourceTree = "<group>";
@@ -129,6 +130,175 @@
 				93137DBF25CC127B00402982 /* Info.plist */,
 			);
 			path = RxSmartHomeUITests;
+			sourceTree = "<group>";
+		};
+		93137DD225CC136900402982 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				93137D9825CC127A00402982 /* AppDelegate.swift */,
+				93137D9A25CC127A00402982 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		93137DD325CC137D00402982 /* 👁Presentation Layer */ = {
+			isa = PBXGroup;
+			children = (
+				93137DDE25CC142A00402982 /* DevicesScene */,
+				93137DDF25CC143E00402982 /* UserScene */,
+				93137DE325CC147300402982 /* Utils */,
+			);
+			path = "👁Presentation Layer";
+			sourceTree = "<group>";
+		};
+		93137DD425CC138C00402982 /* ⚙️Domain Layer */ = {
+			isa = PBXGroup;
+			children = (
+				93137DE425CC14B800402982 /* UseCases-Interactor */,
+				93137DE525CC14CA00402982 /* Entities */,
+				93137DE625CC151C00402982 /* Repo Interfaces */,
+				93137DE725CC152D00402982 /* Models */,
+			);
+			path = "⚙️Domain Layer";
+			sourceTree = "<group>";
+		};
+		93137DD525CC139C00402982 /* 📟Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				93137DE825CC155800402982 /* Repo impl */,
+				93137DE925CC156D00402982 /* Persistent Storage */,
+				93137DEA25CC158400402982 /* Networking */,
+			);
+			path = "📟Data Layer";
+			sourceTree = "<group>";
+		};
+		93137DDE25CC142A00402982 /* DevicesScene */ = {
+			isa = PBXGroup;
+			children = (
+				93137DE025CC145200402982 /* Devices */,
+			);
+			path = DevicesScene;
+			sourceTree = "<group>";
+		};
+		93137DDF25CC143E00402982 /* UserScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserScene;
+			sourceTree = "<group>";
+		};
+		93137DE025CC145200402982 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				93137DE125CC145C00402982 /* View */,
+				93137DE225CC146100402982 /* ViewModel */,
+			);
+			path = Devices;
+			sourceTree = "<group>";
+		};
+		93137DE125CC145C00402982 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93137D9C25CC127A00402982 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93137DE225CC146100402982 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		93137DE325CC147300402982 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		93137DE425CC14B800402982 /* UseCases-Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UseCases-Interactor";
+			sourceTree = "<group>";
+		};
+		93137DE525CC14CA00402982 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		93137DE625CC151C00402982 /* Repo Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Repo Interfaces";
+			sourceTree = "<group>";
+		};
+		93137DE725CC152D00402982 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		93137DE825CC155800402982 /* Repo impl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Repo impl";
+			sourceTree = "<group>";
+		};
+		93137DE925CC156D00402982 /* Persistent Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Persistent Storage";
+			sourceTree = "<group>";
+		};
+		93137DEA25CC158400402982 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		93137DEB25CC15AD00402982 /* ---------------- */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "----------------";
+			sourceTree = "<group>";
+		};
+		93137DEC25CC15BC00402982 /* ---------------- */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "----------------";
+			sourceTree = "<group>";
+		};
+		93137DF125CC160200402982 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93137DA625CC127B00402982 /* LaunchScreen.storyboard */,
+				93137DA925CC127B00402982 /* Info.plist */,
+				93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */,
+				93137D9E25CC127A00402982 /* Main.storyboard */,
+				93137DA425CC127B00402982 /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93137DFA25CC16F900402982 /* TestUI */ = {
+			isa = PBXGroup;
+			children = (
+				93137DFB25CC171D00402982 /* MyPlayground.playground */,
+			);
+			path = TestUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,7 +621,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Dee-R.RxSmartHome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,7 +641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Dee-R.RxSmartHome";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
