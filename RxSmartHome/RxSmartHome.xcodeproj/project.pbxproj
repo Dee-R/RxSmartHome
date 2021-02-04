@@ -24,6 +24,10 @@
 		93137E0C25CC202200402982 /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0425CC202200402982 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93137E0F25CC202200402982 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0625CC202200402982 /* RxSwift.xcframework */; };
 		93137E1025CC202200402982 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0625CC202200402982 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93137E1F25CC21B600402982 /* AppDIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E1E25CC21B600402982 /* AppDIBuilder.swift */; };
+		93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2225CC220B00402982 /* AppEnvironment.swift */; };
+		93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2A25CC241C00402982 /* DevicesViewController.swift */; };
+		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,10 @@
 		93137E0425CC202200402982 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
 		93137E0525CC202200402982 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = Carthage/Build/RxTest.xcframework; sourceTree = "<group>"; };
 		93137E0625CC202200402982 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
+		93137E1E25CC21B600402982 /* AppDIBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIBuilder.swift; sourceTree = "<group>"; };
+		93137E2225CC220B00402982 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		93137E2A25CC241C00402982 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
+		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 			children = (
 				93137D9825CC127A00402982 /* AppDelegate.swift */,
 				93137D9A25CC127A00402982 /* SceneDelegate.swift */,
+				93137E1625CC20BD00402982 /* AppDI */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -179,6 +188,7 @@
 		93137DD325CC137D00402982 /* 👁Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
+				93137E1725CC211200402982 /* AppScene */,
 				93137DDE25CC142A00402982 /* DevicesScene */,
 				93137DDF25CC143E00402982 /* UserScene */,
 				93137DE325CC147300402982 /* Utils */,
@@ -235,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				93137D9C25CC127A00402982 /* ViewController.swift */,
+				93137E2A25CC241C00402982 /* DevicesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +357,23 @@
 				93137E0525CC202200402982 /* RxTest.xcframework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93137E1625CC20BD00402982 /* AppDI */ = {
+			isa = PBXGroup;
+			children = (
+				93137E1E25CC21B600402982 /* AppDIBuilder.swift */,
+				93137E2225CC220B00402982 /* AppEnvironment.swift */,
+			);
+			path = AppDI;
+			sourceTree = "<group>";
+		};
+		93137E1725CC211200402982 /* AppScene */ = {
+			isa = PBXGroup;
+			children = (
+				93137E3225CC258000402982 /* Dashboard.swift */,
+			);
+			path = AppScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +507,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */,
+				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
+				93137E3325CC258000402982 /* Dashboard.swift in Sources */,
+				93137E1F25CC21B600402982 /* AppDIBuilder.swift in Sources */,
 				93137D9D25CC127A00402982 /* ViewController.swift in Sources */,
 				93137D9925CC127A00402982 /* AppDelegate.swift in Sources */,
 				93137DA325CC127A00402982 /* RxSmartHome.xcdatamodeld in Sources */,
