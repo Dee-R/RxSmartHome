@@ -122,7 +122,7 @@ extension DevicesViewController {
         
         // -- Binding --
         fakeDataDevices.bind(to: devicesCV.rx.items(cellIdentifier: DevicesCVCell.reuseID, cellType: DevicesCVCell.self)) { index,value,cell in
-            cell.devicesButton.setTitle("\(value)", for: UIControl.State.normal)
+//            cell.devicesButton.setTitle("\(value)", for: UIControl.State.normal)
         }.disposed(by: bag)
     }
 }
