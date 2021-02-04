@@ -1,17 +1,18 @@
 //
-//  FiltersCVCell.swift
+//  DevicesCVCell.swift
 //  RxSmartHome
 //
 //  Created by Eddy R on 04/02/2021.
 //
+
 import UIKit
 
-class FiltersCVCell: UICollectionViewCell {
-    internal static let reuseID = "FiltersCVCell"
-    internal var filterButton: UIButton = {
+class DevicesCVCell: UICollectionViewCell {
+    internal static let reuseID = "DevicesCVCell"
+    internal var devicesButton: UIButton = {
         let l = UIButton()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.setTitle("test", for: .normal)
+        l.setTitle("-Devices-", for: .normal)
         l.setTitleColor(.black, for: .normal)
         return l
     }()
@@ -25,12 +26,12 @@ class FiltersCVCell: UICollectionViewCell {
         layer.borderColor = UIColor.gray2.cgColor
         self.clipsToBounds = false
         
-        contentView.addSubview(filterButton)
+        contentView.addSubview(devicesButton)
         NSLayoutConstraint.activate([
-            filterButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            filterButton.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            filterButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            filterButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            devicesButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+            devicesButton.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            devicesButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            devicesButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     required init?(coder: NSCoder) { // SB

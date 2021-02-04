@@ -17,9 +17,12 @@ class DevicesViewController: UIViewController {
     // MARK: - PROPERTIES
     private var mainView: UIView!
     private let bag = DisposeBag()
-    var filtersCV: UICollectionView!
+    var filtersCV: UICollectionView! //Filter
     var filtersLayout: UICollectionViewFlowLayout!
-    let fakeDataFilters = BehaviorSubject<[Int]>(value: Array(0...5))
+    var devicesCV: UICollectionView!//Device
+    var devicesLayout: UICollectionViewFlowLayout!
+    let fakeDataFilters = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
+    let fakeDataDevices = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,7 @@ class DevicesViewController: UIViewController {
 extension DevicesViewController {
     fileprivate func buildUI() {
         buildMainView()
+        buildFiltersCV()
         buildDevicesCV()
     }
     fileprivate func buildMainView() {
@@ -51,7 +55,7 @@ extension DevicesViewController {
         mainView.backgroundColor = .rgb(red: 240, green: 230, blue: 240)
         self.mainView = mainView
     }
-    fileprivate func buildDevicesCV() {
+    fileprivate func buildFiltersCV() {
         // -- Build Layout --
         filtersLayout = UICollectionViewFlowLayout()
         filtersLayout.scrollDirection = .horizontal
@@ -79,6 +83,35 @@ extension DevicesViewController {
         // FIXME: bind with viewmodel
         fakeDataFilters.bind(to: filtersCV.rx.items(cellIdentifier: FiltersCVCell.reuseID, cellType: FiltersCVCell.self)) { index,value,cell in
             cell.filterButton.setTitle("\(value)", for: UIControl.State.normal)
+        }.disposed(by: bag)
+    }
+    fileprivate func buildDevicesCV() {
+        // -- Build Layout --
+        devicesLayout = UICollectionViewFlowLayout()
+        devicesLayout.scrollDirection = .vertical
+        devicesLayout.itemSize = CGSize(width: 50, height: 50)
+        
+        // -- Build CollectionView --
+        devicesCV = UICollectionView(frame: .zero, collectionViewLayout: devicesLayout)
+        devicesCV.backgroundColor = .green
+        devicesCV.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(devicesCV)
+        
+        // -- Set Constraint --
+        NSLayoutConstraint.activate([
+            devicesCV.topAnchor.constraint(equalTo: filtersCV.bottomAnchor),
+            devicesCV.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
+            devicesCV.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
+            devicesCV.bottomAnchor.constraint(equalTo: mainView.bottomAnchor)
+        ])
+        
+        // -- Register Cell --
+        devicesCV.register(DevicesCVCell.self, forCellWithReuseIdentifier: DevicesCVCell.reuseID)
+        
+        // -- Binding --
+        fakeDataDevices.bind(to: devicesCV.rx.items(cellIdentifier: DevicesCVCell.reuseID, cellType: DevicesCVCell.self)) { index,value,cell in
+            cell.devicesButton.setTitle("\(value)", for: UIControl.State.normal)
         }.disposed(by: bag)
     }
 }

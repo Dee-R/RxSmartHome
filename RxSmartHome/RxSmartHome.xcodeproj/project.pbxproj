@@ -30,6 +30,7 @@
 		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
+		93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
+		93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */,
+				93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */,
 				93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */,
 				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
 				93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */,
