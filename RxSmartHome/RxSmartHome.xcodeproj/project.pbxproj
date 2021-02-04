@@ -28,6 +28,8 @@
 		93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2225CC220B00402982 /* AppEnvironment.swift */; };
 		93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2A25CC241C00402982 /* DevicesViewController.swift */; };
 		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
+		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
+		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		93137E2225CC220B00402982 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		93137E2A25CC241C00402982 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,7 @@
 		93137DE125CC145C00402982 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				93F0D8AC25CC2DE1004BE652 /* Cell */,
 				93137E2A25CC241C00402982 /* DevicesViewController.swift */,
 			);
 			path = View;
@@ -259,6 +264,7 @@
 		93137DE325CC147300402982 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -374,6 +380,14 @@
 				93137E3225CC258000402982 /* Dashboard.swift */,
 			);
 			path = AppScene;
+			sourceTree = "<group>";
+		};
+		93F0D8AC25CC2DE1004BE652 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +523,8 @@
 			files = (
 				93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */,
 				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
+				93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */,
+				93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */,
 				93137E3325CC258000402982 /* Dashboard.swift in Sources */,
 				93137E1F25CC21B600402982 /* AppDIBuilder.swift in Sources */,
 				93137D9D25CC127A00402982 /* ViewController.swift in Sources */,
