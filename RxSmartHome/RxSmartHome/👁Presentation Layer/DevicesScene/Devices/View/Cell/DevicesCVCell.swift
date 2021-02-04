@@ -13,7 +13,7 @@ class DevicesCVCell: UICollectionViewCell {
         let l = UIButton()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.setTitle("-Devices-", for: .normal)
-        l.setTitleColor(.black, for: .normal)
+        l.setTitleColor(.gray5, for: .normal)
         return l
     }()
     
@@ -23,7 +23,7 @@ class DevicesCVCell: UICollectionViewCell {
         layer.cornerRadius = 10 // set radius item
         layer.masksToBounds = true
         layer.borderWidth = 3
-        layer.borderColor = UIColor.gray2.cgColor
+        layer.borderColor = UIColor.gray4.cgColor
         self.clipsToBounds = false
         
         contentView.addSubview(devicesButton)

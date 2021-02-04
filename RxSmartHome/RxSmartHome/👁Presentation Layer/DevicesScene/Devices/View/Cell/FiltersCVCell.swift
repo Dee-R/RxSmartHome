@@ -12,7 +12,7 @@ class FiltersCVCell: UICollectionViewCell {
         let l = UIButton()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.setTitle("test", for: .normal)
-        l.setTitleColor(.black, for: .normal)
+        l.setTitleColor(.gray5, for: .normal)
         return l
     }()
     

@@ -3,11 +3,6 @@
 //  RxSmartHome
 //
 //  Created by Eddy R on 04/02/2021.
-//
-
-// ❔ Quoi   - 🗺 Ou   - ⏳Quand - ✋Comment
-// 🤸🏽 Action - 🗺 Lieu - ⏳Temps - ✋Maniere
-
 import UIKit
 import RxSwift
 import RxCocoa
@@ -22,12 +17,28 @@ class DevicesViewController: UIViewController {
     var devicesCV: UICollectionView!//Device
     var devicesLayout: UICollectionViewFlowLayout!
     let fakeDataFilters = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
-    let fakeDataDevices = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
+    let fakeDataDevices = BehaviorSubject<[Int]>(value: Array(0...10))// FakeDataFilter
+    private let cellPerRowForDevicesCollectionView: Int = 2 // ---- Setting Devices CollectionView ----
+    private let isRatioForDevicesCollectionView = false // ---- Setting Devices CollectionView ----
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+        
         buildUI()
         setting()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+        // //!\ ◼︎◼︎◼︎ Important ◼︎◼︎◼︎ /!\\
+        // get the Real Size of the collection view
+        // resize the cell in the layout to match with the max height from collection View
+        // settled with auto layout
+        
+        // -- DevicesCollectionViewCell : Defines Size Cell (Filters & Devices) --
+        setSizeCellforDevicesCollectionView()
+        setSizeCellforFiltersCollectionView()
     }
 }
 
@@ -93,7 +104,7 @@ extension DevicesViewController {
         
         // -- Build CollectionView --
         devicesCV = UICollectionView(frame: .zero, collectionViewLayout: devicesLayout)
-        devicesCV.backgroundColor = .green
+        devicesCV.backgroundColor = .gray3
         devicesCV.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(devicesCV)
@@ -131,5 +142,23 @@ extension DevicesViewController {
     }
     fileprivate func setLargeTitleNavigationController() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    fileprivate func setSizeCellforDevicesCollectionView() {
+        let marginDevices = self.mainView.frame.size.width / CGFloat(cellPerRowForDevicesCollectionView) * 0.10
+        devicesLayout.sectionInset = UIEdgeInsets(top: marginDevices, left: marginDevices, bottom: marginDevices, right: marginDevices)
+        let gap = marginDevices
+        devicesLayout.minimumInteritemSpacing = gap
+        devicesLayout.minimumLineSpacing = marginDevices
+        let sizePerItem = (mainView.frame.size.width / CGFloat(cellPerRowForDevicesCollectionView))
+        let sizeAjusted = sizePerItem - marginDevices - (gap / CGFloat(cellPerRowForDevicesCollectionView))
+        let sizeRounded = CGFloat(round(100*sizeAjusted) / 100)
+        
+        devicesLayout.itemSize.width = sizeRounded
+        devicesLayout.itemSize.height = isRatioForDevicesCollectionView ? sizeRounded : sizeRounded / 1.5
+    }
+    fileprivate func setSizeCellforFiltersCollectionView() {
+        let marginFilters = self.mainView.frame.size.width / CGFloat(cellPerRowForDevicesCollectionView) * 0.10
+        filtersLayout.sectionInset = UIEdgeInsets(top: marginFilters, left: marginFilters, bottom: marginFilters, right: marginFilters)
+        filtersLayout.itemSize.height = filtersCV.bounds.height - marginFilters * 2
     }
 }

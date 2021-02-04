@@ -13,7 +13,7 @@ extension UIColor {
     static let gray2 = UIColor.rgb(224,224,224)
     static let gray3 = UIColor.rgb(208,208,208)
     static let gray4 = UIColor.rgb(184,184,184)
-    static let gray5 = UIColor.rgb(144,144,144)
+    static let gray5 = UIColor.rgb(100,100,100)
     
     static func rgb(_ red: CGFloat,_ green: CGFloat,_ blue: CGFloat) -> UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
