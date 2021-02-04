@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,14 @@
 		93137DA825CC127B00402982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93137DA625CC127B00402982 /* LaunchScreen.storyboard */; };
 		93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137DB225CC127B00402982 /* RxSmartHomeTests.swift */; };
 		93137DBE25CC127B00402982 /* RxSmartHomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137DBD25CC127B00402982 /* RxSmartHomeUITests.swift */; };
+		93137E0725CC202200402982 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0225CC202200402982 /* RxRelay.xcframework */; };
+		93137E0825CC202200402982 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0225CC202200402982 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93137E0925CC202200402982 /* RxBlocking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0325CC202200402982 /* RxBlocking.xcframework */; };
+		93137E0A25CC202200402982 /* RxBlocking.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0325CC202200402982 /* RxBlocking.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93137E0B25CC202200402982 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0425CC202200402982 /* RxCocoa.xcframework */; };
+		93137E0C25CC202200402982 /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0425CC202200402982 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93137E0F25CC202200402982 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0625CC202200402982 /* RxSwift.xcframework */; };
+		93137E1025CC202200402982 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93137E0625CC202200402982 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		93137E1125CC202200402982 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93137E1025CC202200402982 /* RxSwift.xcframework in Embed Frameworks */,
+				93137E0A25CC202200402982 /* RxBlocking.xcframework in Embed Frameworks */,
+				93137E0825CC202200402982 /* RxRelay.xcframework in Embed Frameworks */,
+				93137E0C25CC202200402982 /* RxCocoa.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		93137D9525CC127A00402982 /* RxSmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93137D9825CC127A00402982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +77,11 @@
 		93137DBD25CC127B00402982 /* RxSmartHomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSmartHomeUITests.swift; sourceTree = "<group>"; };
 		93137DBF25CC127B00402982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93137DFB25CC171D00402982 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		93137E0225CC202200402982 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
+		93137E0325CC202200402982 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
+		93137E0425CC202200402982 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		93137E0525CC202200402982 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = Carthage/Build/RxTest.xcframework; sourceTree = "<group>"; };
+		93137E0625CC202200402982 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93137E0F25CC202200402982 /* RxSwift.xcframework in Frameworks */,
+				93137E0925CC202200402982 /* RxBlocking.xcframework in Frameworks */,
+				93137E0725CC202200402982 /* RxRelay.xcframework in Frameworks */,
+				93137E0B25CC202200402982 /* RxCocoa.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +120,7 @@
 				93137DB125CC127B00402982 /* RxSmartHomeTests */,
 				93137DBC25CC127B00402982 /* RxSmartHomeUITests */,
 				93137D9625CC127A00402982 /* Products */,
+				93137E0125CC202200402982 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,6 +336,18 @@
 			path = TestUI;
 			sourceTree = "<group>";
 		};
+		93137E0125CC202200402982 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93137E0325CC202200402982 /* RxBlocking.xcframework */,
+				93137E0425CC202200402982 /* RxCocoa.xcframework */,
+				93137E0225CC202200402982 /* RxRelay.xcframework */,
+				93137E0625CC202200402982 /* RxSwift.xcframework */,
+				93137E0525CC202200402982 /* RxTest.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,6 +358,7 @@
 				93137D9125CC127A00402982 /* Sources */,
 				93137D9225CC127A00402982 /* Frameworks */,
 				93137D9325CC127A00402982 /* Resources */,
+				93137E1125CC202200402982 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
