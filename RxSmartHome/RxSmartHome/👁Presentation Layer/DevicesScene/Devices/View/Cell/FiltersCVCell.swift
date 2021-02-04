@@ -8,21 +8,19 @@ import UIKit
 
 class FiltersCVCell: UICollectionViewCell {
     internal static let reuseID = "FiltersCVCell"
+    private static let fontcolor: UIColor = .gray5
     internal var filterButton: UIButton = {
         let l = UIButton()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.setTitle("Product type", for: .normal)
-        l.setTitleColor(.gray5, for: .normal)
+        l.setTitleColor(fontcolor, for: .normal)
         
         return l
     }()
     
     override init(frame: CGRect) { // code
         super.init(frame: frame)
-//        layer.cornerRadius = 10 // set radius item
         layer.masksToBounds = true
-//        layer.borderWidth = 3
-//        layer.borderColor = UIColor.gray2.cgColor
         self.clipsToBounds = true
         
         contentView.addSubview(filterButton)

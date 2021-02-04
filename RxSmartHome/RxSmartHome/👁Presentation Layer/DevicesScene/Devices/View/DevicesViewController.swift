@@ -74,7 +74,7 @@ extension DevicesViewController {
         
         // -- Build CollectionView --
         filtersCV = UICollectionView(frame: .zero, collectionViewLayout: filtersLayout)
-        filtersCV.backgroundColor = UIColor.gray1
+        filtersCV.backgroundColor = UIColor.white
         filtersCV.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(filtersCV)
@@ -104,7 +104,7 @@ extension DevicesViewController {
         
         // -- Build CollectionView --
         devicesCV = UICollectionView(frame: .zero, collectionViewLayout: devicesLayout)
-        devicesCV.backgroundColor = .gray3
+        devicesCV.backgroundColor = .white
         devicesCV.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(devicesCV)
