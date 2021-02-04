@@ -11,19 +11,19 @@ class FiltersCVCell: UICollectionViewCell {
     internal var filterButton: UIButton = {
         let l = UIButton()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.setTitle("test", for: .normal)
+        l.setTitle("Product type", for: .normal)
         l.setTitleColor(.gray5, for: .normal)
+        
         return l
     }()
     
     override init(frame: CGRect) { // code
         super.init(frame: frame)
-        
-        layer.cornerRadius = 10 // set radius item
+//        layer.cornerRadius = 10 // set radius item
         layer.masksToBounds = true
-        layer.borderWidth = 3
-        layer.borderColor = UIColor.gray2.cgColor
-        self.clipsToBounds = false
+//        layer.borderWidth = 3
+//        layer.borderColor = UIColor.gray2.cgColor
+        self.clipsToBounds = true
         
         contentView.addSubview(filterButton)
         NSLayoutConstraint.activate([

@@ -8,14 +8,7 @@ import UIKit
 
 class DevicesCVCell: UICollectionViewCell {
     internal static let reuseID = "DevicesCVCell"
-//    internal var devicesButton: UIButton = {
-//        let l = UIButton()
-//        l.translatesAutoresizingMaskIntoConstraints = false
-//        l.setTitle("-Devices-", for: .normal)
-//        l.setTitleColor(.gray5, for: .normal)
-//        return l
-//    }()
-    
+  
     internal var deviceImage: UIImageView = {
         let image = UIImage(named: "router.png")
         let imageView = UIImageView(image: image)

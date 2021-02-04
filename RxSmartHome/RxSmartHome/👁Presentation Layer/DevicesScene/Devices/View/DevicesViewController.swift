@@ -93,7 +93,7 @@ extension DevicesViewController {
         // -- Binding --
         // FIXME: bind with viewmodel
         fakeDataFilters.bind(to: filtersCV.rx.items(cellIdentifier: FiltersCVCell.reuseID, cellType: FiltersCVCell.self)) { index,value,cell in
-            cell.filterButton.setTitle("\(value)", for: UIControl.State.normal)
+//            cell.filterButton.setTitle("\(value)", for: UIControl.State.normal)
         }.disposed(by: bag)
     }
     fileprivate func buildDevicesCV() {
