@@ -8,25 +8,39 @@ import RxSwift
 import RxCocoa
 import RxBlocking
 
+
+
 class DevicesViewController: UIViewController {
     // MARK: - PROPERTIES
+    var viewModel: DevicesViewModel
+    
     private var mainView: UIView!
     private let bag = DisposeBag()
     var filtersCV: UICollectionView! //Filter
     var filtersLayout: UICollectionViewFlowLayout!
     var devicesCV: UICollectionView!//Device
     var devicesLayout: UICollectionViewFlowLayout!
-    let fakeDataFilters = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
+//    let fakeDataFilters = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
     let fakeDataDevices = BehaviorSubject<[Int]>(value: Array(0...10))// FakeDataFilter
     private let cellPerRowForDevicesCollectionView: Int = 2 // ---- Setting Devices CollectionView ----
     private let isRatioForDevicesCollectionView = false // ---- Setting Devices CollectionView ----
     
+    init(viewModel: DevicesViewModel) {
+        self.viewModel = DevicesViewModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
-        
         buildUI()
         setting()
+        bindindRx()
+        
+        viewModel.showDevices()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -39,6 +53,26 @@ class DevicesViewController: UIViewController {
         // -- DevicesCollectionViewCell : Defines Size Cell (Filters & Devices) --
         setSizeCellforDevicesCollectionView()
         setSizeCellforFiltersCollectionView()
+    }
+    
+    let detailVC1 = UIViewController()
+    
+    fileprivate func bindindRx() {
+        loadViewIfNeeded()
+        // -- filters --
+        viewModel.dataFilter.bind(to: filtersCV.rx.items(cellIdentifier: FiltersCVCell.reuseID, cellType: FiltersCVCell.self)) { index,value,cell in
+            cell.filterButton.setTitle("\(value)", for: UIControl.State.normal)
+        }.disposed(by: bag)
+        
+        // -- devices --
+        viewModel.dataDevices.bind(to: devicesCV.rx.items(cellIdentifier: DevicesCVCell.reuseID, cellType: DevicesCVCell.self)) { index,value,cell in
+            cell.deviceTitle.text = "\(value)"
+        }.disposed(by: bag)
+        
+            
+        devicesCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] e in
+            // ne pas pousser directement le view controller directement depuis le call back
+        }).disposed(by: bag)
     }
 }
 
@@ -89,12 +123,6 @@ extension DevicesViewController {
         
         // -- Register Cell --
         filtersCV.register(FiltersCVCell.self, forCellWithReuseIdentifier: FiltersCVCell.reuseID)
-        
-        // -- Binding --
-        // FIXME: bind with viewmodel
-        fakeDataFilters.bind(to: filtersCV.rx.items(cellIdentifier: FiltersCVCell.reuseID, cellType: FiltersCVCell.self)) { index,value,cell in
-//            cell.filterButton.setTitle("\(value)", for: UIControl.State.normal)
-        }.disposed(by: bag)
     }
     fileprivate func buildDevicesCV() {
         // -- Build Layout --
@@ -119,14 +147,8 @@ extension DevicesViewController {
         
         // -- Register Cell --
         devicesCV.register(DevicesCVCell.self, forCellWithReuseIdentifier: DevicesCVCell.reuseID)
-        
-        // -- Binding --
-        fakeDataDevices.bind(to: devicesCV.rx.items(cellIdentifier: DevicesCVCell.reuseID, cellType: DevicesCVCell.self)) { index,value,cell in
-//            cell.devicesButton.setTitle("\(value)", for: UIControl.State.normal)
-        }.disposed(by: bag)
     }
 }
-
 // MARK: - Setting
 extension DevicesViewController {
     fileprivate func setting() {
@@ -160,5 +182,59 @@ extension DevicesViewController {
         let marginFilters = self.mainView.frame.size.width / CGFloat(cellPerRowForDevicesCollectionView) * 0.10
         filtersLayout.sectionInset = UIEdgeInsets(top: marginFilters, left: marginFilters, bottom: marginFilters, right: marginFilters)
         filtersLayout.itemSize.height = filtersCV.bounds.height - marginFilters * 2
+    }
+}
+extension DevicesViewController {
+    enum DevicesLogic {
+//        static func chooseDevices(trigger: Observable<IndexPath>, devicesData: Observable<Data>) -> Observable<Devices> {
+//        }
+    }
+}
+struct Devices {
+    var type: String
+}
+
+
+
+// MARK: - VIEWMODEL
+// output
+protocol DevicesViewModelOutput {
+    var dataFilter: BehaviorSubject<[Int]> {get set}
+    var dataDevices: BehaviorSubject<[Int]> {get set}
+}
+protocol DevicesViewModelInput {
+    func showDevices()
+}
+class DevicesViewModel: DevicesViewModelOutput, DevicesViewModelInput  {
+    var interactor: InteractorInterface
+    internal var dataFilter = BehaviorSubject<[Int]>(value: []) //    fileprivate var dataDevices = BehaviorSubject<[Int]>(value: Array(0...10))
+    internal var dataDevices = BehaviorSubject<[Int]>(value: [])
+    
+    init() {
+        self.interactor = InteractorDevices()
+    }
+    
+    func showDevices() {
+        // demande interactor
+        interactor.getDevices { (devicesArr) in
+            
+//            dataFilter.value().append(contentsOf: devicesArr)
+            
+        }
+    }
+}
+
+// ⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬
+protocol InteractorInterface { // IWANT someone who
+    func getDevices(completion:([Int])->())
+}
+
+class InteractorDevices: InteractorInterface { // I GOT SOMEONE WHO
+    func getDevices(completion: ([Int])->()) {
+        print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+        // get data form repo
+        let dataFilter = Array(1...10)
+        // send them
+        completion(dataFilter)
     }
 }

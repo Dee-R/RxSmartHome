@@ -15,7 +15,7 @@ class AppDIBuilder {
         self.appEnvironment = appEnvironment
     }
     
-    func buildDevicesDI() {
-        
+    func buildDevicesDI() -> DevicesViewModel{
+        return DevicesViewModel()
     }
 }

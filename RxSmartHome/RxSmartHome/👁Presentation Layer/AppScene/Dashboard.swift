@@ -14,7 +14,7 @@ class Dashboard : UITabBarController, UITabBarControllerDelegate {
         
         // -- Devices Scene --
         //        let devicesViewModel = appDIBuilder.buildDevicesWithAllDependencies()
-        let item1 = DevicesViewController()
+        let item1 = DevicesViewController(viewModel: appDIBuilder.buildDevicesDI())
         let nav_item1 = UINavigationController(rootViewController: item1) // NavigationController + ViewController
         let icon1 = UITabBarItem(title: "Devices", image: UIImage(systemName: "doc.plaintext"), selectedImage: nil)
         item1.tabBarItem = icon1
