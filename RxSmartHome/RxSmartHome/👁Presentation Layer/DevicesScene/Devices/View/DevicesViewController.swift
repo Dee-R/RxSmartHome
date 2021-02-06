@@ -209,32 +209,124 @@ class DevicesViewModel: DevicesViewModelOutput, DevicesViewModelInput  {
     var interactor: InteractorInterface
     internal var dataFilter = BehaviorSubject<[Int]>(value: []) //    fileprivate var dataDevices = BehaviorSubject<[Int]>(value: Array(0...10))
     internal var dataDevices = BehaviorSubject<[Int]>(value: [])
-    
+    // ---
     init() {
         self.interactor = InteractorDevices()
     }
-    
     func showDevices() {
         // demande interactor
         interactor.getDevices { (devicesArr) in
-            
-//            dataFilter.value().append(contentsOf: devicesArr)
-            
+            // TODO: format les datas
+            dataFilter.onNext(devicesArr)
+            dataDevices.onNext(devicesArr)
         }
     }
 }
 
 // ⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬
+struct RegisterRequestDTO_InputBoundary_Interactor {
+    //sert just a transporter les données
+    var email:String
+    var mdp:String
+}
+public func execute(request:String, response:String) { }
+struct RegisterResponseDTO_OutputBoundary_Interactor {
+    //sert just a transporter les données
+    var user:String
+    var error:[String]
+}
+
+// MARK: - INTERACTOR
 protocol InteractorInterface { // IWANT someone who
     func getDevices(completion:([Int])->())
 }
-
+// interactor finish process should return ouput boundary
+// give answer to output
 class InteractorDevices: InteractorInterface { // I GOT SOMEONE WHO
+    // toute la logique ici
+    let repoRemote: DevicesRepo
+    init() {
+        repoRemote = RepoImpl()
+    }
     func getDevices(completion: ([Int])->()) {
         print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
         // get data form repo
-        let dataFilter = Array(1...10)
-        // send them
-        completion(dataFilter)
+        repoRemote.fetchDevices { (dataArray) in
+            let data = dataArray as! Array<Int>
+            completion(data)
+        }
     }
 }
+
+
+
+// MARK: - REPOSITORY DOMAIN-LAYER <i>
+protocol DevicesRepo {
+    typealias DataDevices<T> = Array<T>
+    func fetchDevices(completion: (DataDevices<Any>)->())
+}
+
+// MARK: - REPOSITORY DATA-LAYER impl
+class RepoImpl: DevicesRepo {
+    // repoLocal
+    // repoDistant
+    
+    func fetchDevices(completion: (DataDevices<Any>) -> ()) {
+        // renvoie à l interation
+        let data: DataDevices<Int> = [1,2,3]
+        completion(data)
+    }
+}
+
+
+
+
+
+
+// exemple
+// MARK: - UseCase/Interactor
+protocol NameUseCase {
+    func execute(requestValue: NameUseCaseRequest, completionResponse:(String)->())
+}
+class NameUseCaseImpl: NameUseCase {
+    let nameRepo: NameRepo
+    init(nameRepo:NameRepo) {
+        self.nameRepo = nameRepo
+    }
+    func execute(requestValue: NameUseCaseRequest, completionResponse: (String) -> ()) {
+        //execution avec inputBoundary
+        nameRepo.fetchA(requestValueData: requestValue.data, requestValuePage: requestValue.page) { (resultDeOutputBoundary) in
+            //result is an ouptboudary
+            // if succes mayby save in core data
+        }
+        completionResponse("result")
+    }
+}
+
+struct NameUseCaseRequest {
+    let data:Date
+    let page: Int
+}
+
+// MARK: - REPO
+protocol NameRepo {
+    func fetchA(requestValueData: Date, requestValuePage: Int, completion:(String)->())
+}
+class NameRepoImpl: NameRepo {
+    func fetchA(requestValueData: Date, requestValuePage: Int, completion ccompletionFetchA: (String) -> ()) {
+        //create request DTO
+        /**
+         API.FetchData(with requestDTO ) { RESULT in
+            RESULT = responseDTO
+            ccompletionFetchA("REsult")
+         }
+         */
+    }
+}
+
+class API {
+    static func getDevices(dto:String) -> String {
+        return "retourn ce que tu vux"
+    }
+}
+
