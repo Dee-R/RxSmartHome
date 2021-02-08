@@ -9,12 +9,11 @@ import UIKit
 class FiltersCVCell: UICollectionViewCell {
     internal static let reuseID = "FiltersCVCell"
     private static let fontcolor: UIColor = .gray5
-    internal var filterButton: UIButton = {
-        let l = UIButton()
+    internal var filterLabel: UILabel = {
+        let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.setTitle("Product type", for: .normal)
-        l.setTitleColor(fontcolor, for: .normal)
-        
+        l.text = "Product type"
+        l.textColor = fontcolor
         return l
     }()
     
@@ -23,12 +22,12 @@ class FiltersCVCell: UICollectionViewCell {
         layer.masksToBounds = true
         self.clipsToBounds = true
         
-        contentView.addSubview(filterButton)
+        contentView.addSubview(filterLabel)
         NSLayoutConstraint.activate([
-            filterButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            filterButton.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            filterButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            filterButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            filterLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            filterLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            filterLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            filterLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     required init?(coder: NSCoder) { // SB
