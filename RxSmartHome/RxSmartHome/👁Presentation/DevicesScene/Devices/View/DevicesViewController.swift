@@ -8,28 +8,26 @@ import RxSwift
 import RxCocoa
 import RxBlocking
 
-
-
+// MARK: - VIEW
 class DevicesViewController: UIViewController {
     // MARK: - PROPERTIES
-    var viewModel: DevicesViewModel
-    
+    var viewModel: DevicesViewModelImpl
     private var mainView: UIView!
     private let bag = DisposeBag()
-    var filtersCV: UICollectionView! //Filter
-    var filtersLayout: UICollectionViewFlowLayout!
-    var devicesCV: UICollectionView!//Device
-    var devicesLayout: UICollectionViewFlowLayout!
-//    let fakeDataFilters = BehaviorSubject<[Int]>(value: Array(0...5))// FakeDataFilter
-    let fakeDataDevices = BehaviorSubject<[Int]>(value: Array(0...10))// FakeDataFilter
+    private var filtersCV: UICollectionView! //Filter
+    private var filtersLayout: UICollectionViewFlowLayout!
+    private var devicesCV: UICollectionView!//Device
+    private var devicesLayout: UICollectionViewFlowLayout!
     private let cellPerRowForDevicesCollectionView: Int = 2 // ---- Setting Devices CollectionView ----
     private let isRatioForDevicesCollectionView = false // ---- Setting Devices CollectionView ----
     
-    init(viewModel: DevicesViewModel) {
-        self.viewModel = DevicesViewModel()
+    var showDeviceDetail: (IndexPath)->() = { _ in } // flow
+    
+    
+    init(viewModel: DevicesViewModelImpl) {
+        self.viewModel = DevicesViewModelImpl()
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -59,25 +57,23 @@ class DevicesViewController: UIViewController {
     
     fileprivate func bindindRx() {
         loadViewIfNeeded()
-        // -- filters --
+
         viewModel.dataFilter.bind(to: filtersCV.rx.items(cellIdentifier: FiltersCVCell.reuseID, cellType: FiltersCVCell.self)) { index,value,cell in
             cell.filterButton.setTitle("\(value)", for: UIControl.State.normal)
-        }.disposed(by: bag)
-        
-        // -- devices --
+        }.disposed(by: bag) // -- filters --
         viewModel.dataDevices.bind(to: devicesCV.rx.items(cellIdentifier: DevicesCVCell.reuseID, cellType: DevicesCVCell.self)) { index,value,cell in
             cell.deviceTitle.text = "\(value)"
-        }.disposed(by: bag)
+        }.disposed(by: bag) // -- devices --
         
+        devicesCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] indexPath in
+            guard let this = self else {return}
             
-        devicesCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] e in
+            let index = indexPath
+            this.showDeviceDetail(index)
             // ne pas pousser directement le view controller directement depuis le call back
         }).disposed(by: bag)
     }
 }
-
-
-// MARK: - UI
 extension DevicesViewController {
     fileprivate func buildUI() {
         buildMainView()
@@ -148,8 +144,7 @@ extension DevicesViewController {
         // -- Register Cell --
         devicesCV.register(DevicesCVCell.self, forCellWithReuseIdentifier: DevicesCVCell.reuseID)
     }
-}
-// MARK: - Setting
+} // UI
 extension DevicesViewController {
     fileprivate func setting() {
         setColorMainView()
@@ -183,7 +178,7 @@ extension DevicesViewController {
         filtersLayout.sectionInset = UIEdgeInsets(top: marginFilters, left: marginFilters, bottom: marginFilters, right: marginFilters)
         filtersLayout.itemSize.height = filtersCV.bounds.height - marginFilters * 2
     }
-}
+} // Setting
 extension DevicesViewController {
     enum DevicesLogic {
 //        static func chooseDevices(trigger: Observable<IndexPath>, devicesData: Observable<Data>) -> Observable<Devices> {
@@ -197,7 +192,6 @@ struct Devices {
 
 
 // MARK: - VIEWMODEL
-// output
 protocol DevicesViewModelOutput {
     var dataFilter: BehaviorSubject<[Int]> {get set}
     var dataDevices: BehaviorSubject<[Int]> {get set}
@@ -205,13 +199,13 @@ protocol DevicesViewModelOutput {
 protocol DevicesViewModelInput {
     func showDevices()
 }
-class DevicesViewModel: DevicesViewModelOutput, DevicesViewModelInput  {
+class DevicesViewModelImpl: DevicesViewModelOutput, DevicesViewModelInput  {
     var interactor: InteractorInterface
     internal var dataFilter = BehaviorSubject<[Int]>(value: []) //    fileprivate var dataDevices = BehaviorSubject<[Int]>(value: Array(0...10))
     internal var dataDevices = BehaviorSubject<[Int]>(value: [])
     // ---
     init() {
-        self.interactor = InteractorDevices()
+        self.interactor = InteractorDevicesImpl()
     }
     func showDevices() {
         // demande interactor
@@ -223,18 +217,7 @@ class DevicesViewModel: DevicesViewModelOutput, DevicesViewModelInput  {
     }
 }
 
-// ⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬
-struct RegisterRequestDTO_InputBoundary_Interactor {
-    //sert just a transporter les données
-    var email:String
-    var mdp:String
-}
-public func execute(request:String, response:String) { }
-struct RegisterResponseDTO_OutputBoundary_Interactor {
-    //sert just a transporter les données
-    var user:String
-    var error:[String]
-}
+
 
 // MARK: - INTERACTOR
 protocol InteractorInterface { // IWANT someone who
@@ -242,11 +225,11 @@ protocol InteractorInterface { // IWANT someone who
 }
 // interactor finish process should return ouput boundary
 // give answer to output
-class InteractorDevices: InteractorInterface { // I GOT SOMEONE WHO
+class InteractorDevicesImpl: InteractorInterface { // I GOT SOMEONE WHO
     // toute la logique ici
     let repoRemote: DevicesRepo
     init() {
-        repoRemote = RepoImpl()
+        repoRemote = DevicesRepoImpl()
     }
     func getDevices(completion: ([Int])->()) {
         print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
@@ -259,28 +242,27 @@ class InteractorDevices: InteractorInterface { // I GOT SOMEONE WHO
 }
 
 
-
 // MARK: - REPOSITORY DOMAIN-LAYER <i>
 protocol DevicesRepo {
     typealias DataDevices<T> = Array<T>
     func fetchDevices(completion: (DataDevices<Any>)->())
 }
 
+
+
+
+
+// ---- DataLayer ----
 // MARK: - REPOSITORY DATA-LAYER impl
-class RepoImpl: DevicesRepo {
+class DevicesRepoImpl: DevicesRepo {
     // repoLocal
     // repoDistant
-    
     func fetchDevices(completion: (DataDevices<Any>) -> ()) {
         // renvoie à l interation
         let data: DataDevices<Int> = [1,2,3]
         completion(data)
     }
 }
-
-
-
-
 
 
 // exemple
@@ -302,7 +284,6 @@ class NameUseCaseImpl: NameUseCase {
         completionResponse("result")
     }
 }
-
 struct NameUseCaseRequest {
     let data:Date
     let page: Int
@@ -323,7 +304,6 @@ class NameRepoImpl: NameRepo {
          */
     }
 }
-
 class API {
     static func getDevices(dto:String) -> String {
         return "retourn ce que tu vux"

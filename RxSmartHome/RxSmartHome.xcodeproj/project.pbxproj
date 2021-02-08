@@ -151,11 +151,13 @@
 		93137D9725CC127A00402982 /* RxSmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				93137D9825CC127A00402982 /* AppDelegate.swift */,
+				93137D9A25CC127A00402982 /* SceneDelegate.swift */,
 				93137DD225CC136900402982 /* Application */,
 				93137DEB25CC15AD00402982 /* ---------------- */,
-				93137DD325CC137D00402982 /* 👁Presentation Layer */,
-				93137DD425CC138C00402982 /* ⚙️Domain Layer */,
-				93137DD525CC139C00402982 /* 📟Data Layer */,
+				93137DD325CC137D00402982 /* 👁Presentation */,
+				93137DD425CC138C00402982 /* ⚙️Domain */,
+				93137DD525CC139C00402982 /* 📟Data */,
 				93137DEC25CC15BC00402982 /* ---------------- */,
 				93137DF125CC160200402982 /* Supporting Files */,
 				93137DFA25CC16F900402982 /* TestUI */,
@@ -184,14 +186,12 @@
 		93137DD225CC136900402982 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				93137D9825CC127A00402982 /* AppDelegate.swift */,
-				93137D9A25CC127A00402982 /* SceneDelegate.swift */,
-				93137E1625CC20BD00402982 /* AppDI */,
+				93137E1625CC20BD00402982 /* Builder */,
 			);
 			path = Application;
 			sourceTree = "<group>";
 		};
-		93137DD325CC137D00402982 /* 👁Presentation Layer */ = {
+		93137DD325CC137D00402982 /* 👁Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				93137E1725CC211200402982 /* AppScene */,
@@ -199,10 +199,10 @@
 				93137DDF25CC143E00402982 /* UserScene */,
 				93137DE325CC147300402982 /* Utils */,
 			);
-			path = "👁Presentation Layer";
+			path = "👁Presentation";
 			sourceTree = "<group>";
 		};
-		93137DD425CC138C00402982 /* ⚙️Domain Layer */ = {
+		93137DD425CC138C00402982 /* ⚙️Domain */ = {
 			isa = PBXGroup;
 			children = (
 				93137DE425CC14B800402982 /* UseCases-Interactor */,
@@ -210,17 +210,17 @@
 				93137DE625CC151C00402982 /* Repo Interfaces */,
 				93137DE725CC152D00402982 /* Models */,
 			);
-			path = "⚙️Domain Layer";
+			path = "⚙️Domain";
 			sourceTree = "<group>";
 		};
-		93137DD525CC139C00402982 /* 📟Data Layer */ = {
+		93137DD525CC139C00402982 /* 📟Data */ = {
 			isa = PBXGroup;
 			children = (
 				93137DE825CC155800402982 /* Repo impl */,
 				93137DE925CC156D00402982 /* Persistent Storage */,
 				93137DEA25CC158400402982 /* Networking */,
 			);
-			path = "📟Data Layer";
+			path = "📟Data";
 			sourceTree = "<group>";
 		};
 		93137DDE25CC142A00402982 /* DevicesScene */ = {
@@ -368,13 +368,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		93137E1625CC20BD00402982 /* AppDI */ = {
+		93137E1625CC20BD00402982 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				93137E1E25CC21B600402982 /* AppDIBuilder.swift */,
 				93137E2225CC220B00402982 /* AppEnvironment.swift */,
+				93137E1E25CC21B600402982 /* AppDIBuilder.swift */,
 			);
-			path = AppDI;
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		93137E1725CC211200402982 /* AppScene */ = {

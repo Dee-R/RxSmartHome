@@ -9,13 +9,12 @@ import Foundation
 
 class AppDIBuilder {
     static let shared = AppDIBuilder(appEnvironment: AppEnvironment())
-    
     let appEnvironment: AppEnvironment
+    
     init(appEnvironment: AppEnvironment) {
         self.appEnvironment = appEnvironment
     }
-    
-    func buildDevicesDI() -> DevicesViewModel{
-        return DevicesViewModel()
+    func buildDevicesDI() -> DevicesViewModelImpl{
+        return DevicesViewModelImpl()
     }
 }
