@@ -2,9 +2,6 @@
 import Foundation
 @testable import RxSmartHome
 
-enum ApiError: String {
-    case url
-}
 
 //class MockApiNetworkImpl {
 //    var url:String?

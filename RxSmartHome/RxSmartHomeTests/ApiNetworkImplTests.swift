@@ -10,7 +10,42 @@
 import XCTest
 
 class ApiNetworkImplTests: XCTestCase {
+    var sut: ApiNetworkImpl!
     
+    override func setUp() {
+        super.setUp()
+        sut = ApiNetworkImpl()
+    }
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
+    func test_init_setBaseUrl() {
+        sut.baseUrl = "test"
+        XCTAssertNotNil(sut.baseUrl)
+    }
+    func test_init_fetchWithNoUrl_givenError() {
+        var expError: ApiError?
+        let exp = expectation(description: "given error when no url")
+        sut.fetch { error, data in
+            expError = error
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+        XCTAssertEqual(expError, ApiError.url)
+    }
+    func test_init_fetchWithNUrl_givenData() {
+        sut.baseUrl = "test.json"
+        var expData: String?
+        let exp = expectation(description: "given data with url")
+        sut.fetch { error, data in
+            expData = data
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+        XCTAssertEqual(expData, "data")
+    }
     
 }
 /** url
