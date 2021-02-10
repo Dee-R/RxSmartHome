@@ -5,9 +5,11 @@ import Foundation
 
 // 👁👁🤝
 protocol DevicesRepo {
-    typealias DataDevices<T> = Array<T>
-    
-    func fetchDevices(completion: (DataDevices<Any>)->())
+    typealias DevicesData<T> = T
+     func fetchDevices(completion :@escaping (DevicesData<Any>)->())
     // delete
     // update
 }
+
+
+

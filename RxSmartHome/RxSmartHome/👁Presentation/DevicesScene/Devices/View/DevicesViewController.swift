@@ -59,10 +59,10 @@ class DevicesViewController: UIViewController {
         viewModel.dataDevices.bind(to: devicesCV.rx.items(cellIdentifier: DevicesCVCell.reuseID, cellType: DevicesCVCell.self)) { index,value,cell in
             cell.deviceTitle.text = "\(value)"
         }.disposed(by: bag) // -- devices --
-        filtersCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] didTap in
+        filtersCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] indexPathValue in
             guard let this = self else {return}
-            print(didTap)
-            try? this.filterDevices(2) // pass the type:Any
+            
+            try? this.filterDevices("toto") // pass the type:Any
             
         }).disposed(by: bag)
         devicesCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] indexPath in
@@ -75,7 +75,7 @@ class DevicesViewController: UIViewController {
         }).disposed(by: bag)
     }
     
-    private func filterDevices(_ typeDevices: Int) throws -> Void  {
+    private func filterDevices(_ typeDevices: String) throws -> Void  {
         print("░░░██❄️ -- FilterDevices  ❄️██░░░ [ \(type(of: self)) L\(#line)")
         let typeD = typeDevices
         guard let devices = try? viewModel.dataDevices.value() else {return}
@@ -83,7 +83,7 @@ class DevicesViewController: UIViewController {
         let newArray = devices.filter { (value) -> Bool in
             return typeD == value
         }
-//        viewModel.dataDevices.onNext(newArray)
+        viewModel.dataDevices.onNext(newArray)
         // in : recois le type du bouton
         // other : array des devices
         /**

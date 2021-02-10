@@ -4,8 +4,8 @@
 import Foundation
 
 // // 👁👁🤝
-protocol DevicesInteractor { // IWANT someone who
-    func getDevices(completion:([Int])->())
+protocol DevicesInteractor { // vm want ...
+    func getDevices(completion: @escaping ([Device])->())
 }
 
 // ⛔️⛔️
@@ -16,12 +16,12 @@ class DevicesInteractorImpl: DevicesInteractor { // I GOT SOMEONE WHO
         print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
         repoRemote = DevicesRepoImpl()
     }
-    func getDevices(completion: ([Int])->()) {
+    func getDevices(completion: @escaping ([Device])->()) {
         print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
-        // FIXME: Need implementation of Remote or Local Service
-        repoRemote.fetchDevices { (dataArray) in
-            let data = dataArray as! Array<Int>
-            completion(data)
+        repoRemote.fetchDevices { (deviceModelObj) in
+            guard let deviceObj = deviceModelObj as? DeviceModel else { fatalError() }
+            guard let unwDevices = deviceObj.devices else { return }
+            completion(unwDevices)
         }
     }
 }
