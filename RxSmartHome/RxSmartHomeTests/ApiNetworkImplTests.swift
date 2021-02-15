@@ -2,68 +2,129 @@
 //  RxSmartHomeTests
 //  Created by Eddy R on 09/02/2021.
 
-// Arrange init [expected]
-// Act : execute la function [actual]
-// Assert  actual † expected
-
-
 import XCTest
 
 class ApiNetworkImplTests: XCTestCase {
-    var sut: ApiNetworkImpl!
-    
+    var sut: MockApiNetwork!
     override func setUp() {
         super.setUp()
-        sut = ApiNetworkImpl()
+        sut = MockApiNetwork()
     }
     override func tearDown() {
         sut = nil
         super.tearDown()
     }
     
-    func test_init_setBaseUrl() {
-        sut.baseUrl = "test"
-        XCTAssertNotNil(sut.baseUrl)
-    }
-    func test_init_fetchWithNoUrl_givenError() {
-        var expError: ApiError?
-        let exp = expectation(description: "given error when no url")
-        sut.fetch { error, data in
-            expError = error
-            exp.fulfill()
+    func test_api_fetch_device_givenSuccessReponse() {
+        sut.shouldReturnError = false
+        helperfetch(msg: "success response expectation") { data, response in
+            XCTAssertEqual(response, "success to fetch")
         }
-        wait(for: [exp], timeout: 1)
-        XCTAssertEqual(expError, ApiError.url)
     }
-    func test_init_fetchWithNUrl_givenData() {
-        sut.baseUrl = "test.json"
-        var expData: String?
-        let exp = expectation(description: "given data with url")
-        sut.fetch { error, data in
-            expData = data
-            exp.fulfill()
+    func test_api_fetch_device_givenErrorResponse() {
+        sut.shouldReturnError = true
+        helperfetch(msg: "success response expectation") { data, response in
+            XCTAssertEqual(response, "error to fetch")
         }
-        wait(for: [exp], timeout: 1)
-        XCTAssertEqual(expData, "data")
+    }
+    func test_api_fetch_device_givenDeviceObj() {
+        helperfetch(msg: "get device objc") { (data, response) in
+            guard (data != nil) else { assertionFailure(); return}
+        }
+    }
+    func test_api_fetch_device_givenNoDeviceObj() {
+        sut.shouldReturnError = true
+        helperfetch(msg: "get device objc") { (data, response) in
+            guard (data != nil) else { XCTAssert(true); return}
+        }
+    }
+    func test_api_fetch_device_givenNil() {
+        _ = sut.shouldReturnError = true
+        helperfetch(msg: "return nil") { (device, response) in
+            XCTAssertTrue(device == nil)
+        }
+    }
+    func test_api_fetch_device_givenDeviceObjWithArrayOfDevice() {
+        helperfetch(msg: "getArrayOfDevices") { (deviceObjc, response) in
+            guard let unwDeviceObjc = deviceObjc else { fatalError("unwDeviceObjc : nil") }
+            if unwDeviceObjc.devices != DeviceModel(devices: [Device(id: nil, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)], user: nil).devices {
+                assertionFailure()
+            }
+        }
     }
     
+    // helper
+    func helperfetch(msg:String = "", completion : (DeviceModel? ,String)->()) {
+        let exp = expectation(description: "msg expectation")
+        sut.fetch() { data,response in
+            completion(data, response ?? "")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+    }
+    
+    
+    
+    class MockApiNetwork {
+        var shouldReturnError = false
+        var responseFetch:String {
+            if !shouldReturnError {
+                return "success to fetch"
+            } else {
+                return "error to fetch"
+            }
+        }
+        var dataFetch:DeviceModel? {
+            if !shouldReturnError {
+                let device = Device(id: nil, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)
+                return DeviceModel(devices: [device], user: nil)
+            } else {
+                return nil
+            }
+        }
+        
+        func fetch(completion:(DeviceModel?, String?)->Void) {
+            completion(dataFetch, responseFetch)
+        }
+    }
 }
-/** url
- got url
- got error
- got data
- got parse
- got obj data
- */
-/**  //!\ ◼︎◼︎◼︎ Important ◼︎◼︎◼︎ /!\\ identify difficult Dependency explication
- 
- Quand tu fetch des Datas tu utilises URLSession... dans ta methode.
- les test unitaires sont très dure a procedé.
- la solution pour les rendres facile :
- - Extraire le morceau de code voulu URLSession par example.
- - l'injecter dans un protol personnalisé qui implement la fonctionnalité de base
- protocol URLSessionCustom { }
- extension URLSession : URLSessionCustom {  }
- - ajouter dans le protocol la fonction desiré et que tu veux tester,
- Ceci et une bonne methode pour découpler
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+var jsonData =
+    """
+{
+    "devices": [
+    {
+    "id": 1,
+    "deviceName": "Lampe - Cuisine",
+    "intensity": 50,
+    "mode": "ON",
+    "productType": "Light"
+    }
+    ],
+    "user": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "address": {
+            "city": "Issy-les-Moulineaux",
+            "postalCode": 92130,
+            "street": "rue Michelet",
+            "streetCode": "2B",
+            "country": "France"
+        },
+        "birthDate": 813766371000
+    }
+}
+"""
+

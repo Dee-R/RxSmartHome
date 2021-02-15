@@ -10,6 +10,3 @@ protocol DevicesRepo {
     // delete
     // update
 }
-
-
-

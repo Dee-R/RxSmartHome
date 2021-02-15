@@ -32,7 +32,7 @@
 		9374409225D29C39007F17D3 /* ApiNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetworkImpl.swift */; };
 		9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
 		9374415A25D3057D007F17D3 /* ApiNetworkImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374415925D3057D007F17D3 /* ApiNetworkImplTests.swift */; };
-		9374416125D3157A007F17D3 /* MockApiNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374416025D3157A007F17D3 /* MockApiNetworkImpl.swift */; };
+		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
 		93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */; };
 		93A642DE25D1B2E20071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* DevicesRepo.swift */; };
 		93A642E225D1B3200071A8DA /* DevicesRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepoImpl.swift */; };
@@ -105,7 +105,7 @@
 		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		9374405725D1FC34007F17D3 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		9374415925D3057D007F17D3 /* ApiNetworkImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkImplTests.swift; sourceTree = "<group>"; };
-		9374416025D3157A007F17D3 /* MockApiNetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiNetworkImpl.swift; sourceTree = "<group>"; };
+		9382955F25D5E1B4005FD3EA /* Cime */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cime; sourceTree = "<group>"; };
 		93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractor.swift; sourceTree = "<group>"; };
 		93A642DD25D1B2E20071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
 		93A642E125D1B3200071A8DA /* DevicesRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoImpl.swift; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 		93137D8C25CC127A00402982 = {
 			isa = PBXGroup;
 			children = (
+				9382955F25D5E1B4005FD3EA /* Cime */,
 				93137D9725CC127A00402982 /* RxSmartHome */,
 				93137DB125CC127B00402982 /* RxSmartHomeTests */,
 				93137DBC25CC127B00402982 /* RxSmartHomeUITests */,
@@ -438,7 +439,6 @@
 		9374415F25D3154A007F17D3 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				9374416025D3157A007F17D3 /* MockApiNetworkImpl.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -558,6 +558,7 @@
 			files = (
 				93137DA825CC127B00402982 /* LaunchScreen.storyboard in Resources */,
 				93137DA525CC127B00402982 /* Assets.xcassets in Resources */,
+				9382956025D5E1B4005FD3EA /* Cime in Resources */,
 				93137DA025CC127A00402982 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,7 +609,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
-				9374416125D3157A007F17D3 /* MockApiNetworkImpl.swift in Sources */,
 				9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */,
 				9374415A25D3057D007F17D3 /* ApiNetworkImplTests.swift in Sources */,
 				9374409225D29C39007F17D3 /* ApiNetworkImpl.swift in Sources */,

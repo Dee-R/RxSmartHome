@@ -22,7 +22,7 @@ class DevicesViewModelImpl: DeviceViewModel {
     internal var dataDevices = BehaviorSubject<[String]>(value: [])
     // ---
     init() {
-        print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+        
         self.interactor = DevicesInteractorImpl()
     }
     func showDevices() {

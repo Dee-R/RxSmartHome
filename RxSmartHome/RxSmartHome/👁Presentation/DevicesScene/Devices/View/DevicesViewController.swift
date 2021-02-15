@@ -30,7 +30,7 @@ class DevicesViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+        
         buildUI()
         setting()
         bindindRx()
@@ -67,7 +67,7 @@ class DevicesViewController: UIViewController {
         }).disposed(by: bag)
         devicesCV.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] indexPath in
             guard let this = self else {return}
-            print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+            
             
             let index = indexPath
             this.showDeviceDetail(index)

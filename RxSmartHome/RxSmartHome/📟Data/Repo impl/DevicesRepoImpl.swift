@@ -5,16 +5,10 @@ import Foundation
 
 // ⛔️⛔️
 class DevicesRepoImpl: DevicesRepo {
-    // repoLocal
-//    let apiNetwork: ApiNetwork =  ApiNetworkImpl()
-    //let dataSourceRemote: DevicesRepo = DevicesRepo()
-    init() { print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ") }
+    
     func fetchDevices(completion: @escaping (DevicesData<Any>) -> ()) {
-        
-//        self.apiNetwork.fetchDevice { (deviceModelObj) in
-//            completion(deviceModelObj)
-//        }
-        
+        //renvoyer Devices by call api
+//        try? api.fetch { (string, error) in }
     }
 }
 

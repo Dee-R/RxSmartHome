@@ -7,13 +7,17 @@
 import Foundation
 
 /// Model
-struct DeviceModel: Codable {
+struct DeviceModel: Codable, Equatable {
+    static func == (lhs: DeviceModel, rhs: DeviceModel) -> Bool {
+        return lhs.devices == rhs.devices && lhs.user == rhs.user
+    }
+    
     let devices: [Device]?
     let user: User?
 }
 
 // MARK: - Device
-struct Device: Codable {
+struct Device: Codable, Equatable {
     let id: Int?
     let deviceName: String?
     let productType: ProductType?
@@ -29,18 +33,23 @@ enum ProductType: String, Codable {
 }
 
 // MARK: - User
-struct User: Codable {
+struct User: Codable, Equatable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.address == rhs.address && lhs.birthDate == rhs.birthDate && lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName
+    }
+    
     let firstName, lastName: String?
     let address: Address?
     let birthDate: Int?
 }
 
 // MARK: - Address
-struct Address: Codable {
+struct Address: Codable, Equatable {
     let city: String?
     let postalCode: Int?
     let street, streetCode, country: String?
 }
+
 
 
 

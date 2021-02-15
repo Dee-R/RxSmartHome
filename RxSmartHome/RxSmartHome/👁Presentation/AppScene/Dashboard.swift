@@ -8,7 +8,7 @@ class Dashboard : UITabBarController, UITabBarControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("  L\(#line) [✴️\(type(of: self))  ✴️\(#function) ] ")
+        
         self.delegate = self
         
         // -- Devices Scene --

@@ -1,0 +1,182 @@
+//  ApiNetworkImplTests.swift
+//  RxSmartHomeTests
+//  Created by Eddy R on 09/02/2021.
+
+// Arrange init [expected]
+// Act : execute la function [actual]
+// Assert  actual † expected
+
+
+import XCTest
+
+class ApiNetworkImplTests: XCTestCase {
+    var sut: ApiNetworkImpl!
+    
+    override func setUp() {
+        super.setUp()
+//        sut = ApiNetworkImpl()
+        sut = ApiNetworkImpl(baseUrl: "test.json", session: URLSession.shared)
+    }
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
+    func test_api_init_setBaseUrl_url() {
+        sut = ApiNetworkImpl(baseUrl: "test", session: nil)
+        XCTAssertNotNil(sut.baseUrl)
+    }
+    func test_api_init_setSession_session() {
+        let session = URLSession.shared
+        sut = ApiNetworkImpl(baseUrl: "test.json",session: session)
+        XCTAssertNotNil(sut.session)
+    }
+    func test_api_fetch_errorUrlNoValid_givenError() {
+        sut.baseUrl = nil
+        var expErrorUrl: ApiError?
+        let exp = expectation(description: "given error")
+        try? sut.fetch() { data, error in
+            expErrorUrl = error
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 2)
+        XCTAssertEqual(expErrorUrl, .url)
+    }
+    func test_api_fetch_URLsetup_givenURL() {
+        try? sut.fetch() { _,_ in }
+        XCTAssertNotNil(sut.url)
+    }
+    func test_api_fetch_URLsetWithNilBaseUrl_error() {
+        sut.baseUrl = nil
+        let exp = expectation(description: "given error")
+        XCTAssertThrowsError(
+            try sut.fetch() {_,_ in
+                exp.fulfill()
+            }
+        )
+        wait(for: [exp], timeout: 1)
+    }
+    func test_api_fetch_data_givenData() {
+        let mockSession = MockURLSessionProtocol()
+        let expData:String? = "data"
+        sut.session = mockSession
+        try? sut.fetch() { _,_ in}
+        XCTAssertEqual(mockSession.data, expData)
+    }
+    
+    
+    class MockURLSessionProtocol: URLSessionProtocol {
+        var data:String?
+        func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+            debugPrint("L\(#line) 🏵 -------> mock")
+            self.data = "data"
+            return DummyURLSessionDataTask()
+        }
+    }
+    // needed to satisfy the compiler for mocking
+    private class DummyURLSessionDataTask: URLSessionDataTask {
+        override func resume() {
+        }
+    }
+}
+
+
+var jsonData =
+"""
+{
+    "devices": [
+    {
+    "id": 1,
+    "deviceName": "Lampe - Cuisine",
+    "intensity": 50,
+    "mode": "ON",
+    "productType": "Light"
+    }
+    ],
+    "user": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "address": {
+            "city": "Issy-les-Moulineaux",
+            "postalCode": 92130,
+            "street": "rue Michelet",
+            "streetCode": "2B",
+            "country": "France"
+        },
+        "birthDate": 813766371000
+    }
+}
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// DevicesRepoImpl
+//  DevicesRepo.swift
+//  RxSmartHome
+//  Created by Eddy R on 08/02/2021.
+
+import Foundation
+
+// 👁👁🤝 Proper protocol
+protocol ApiNetwork {
+//     func fetchDevice(completion: @escaping (DeviceModel)->())
+}
+// ⛔️⛔️ Engine
+class ApiNetworkImpl: ApiNetwork {
+    var baseUrl:String?
+    var session: URLSessionProtocol?
+    var url: URL?
+    
+    convenience init(baseUrl:String?, session: URLSession?) {
+        self.init()
+        self.baseUrl = baseUrl
+        self.session = session
+    }
+    func fetch(completionFetch:@escaping (Data?, ApiError?)->Void ) throws {
+        if baseUrl == nil {
+            completionFetch(nil, ApiError.url)
+            throw ApiError.url
+        } else {
+            guard let unwBaseUrl = baseUrl else { throw ApiError.url }
+            guard let unwURL = URL(string: unwBaseUrl) else { throw ApiError.url }
+            url = unwURL
+            guard let unwSession = session else { fatalError("unwSession") }
+            unwSession.dataTask(with: unwURL) { (data, response, error) in
+                completionFetch(data, nil)
+            }.resume()
+        }
+    }
+}
+// ⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬⌬
+enum ApiError: Error {
+    case url
+}
+protocol URLSessionProtocol {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+extension URLSession: URLSessionProtocol { }
