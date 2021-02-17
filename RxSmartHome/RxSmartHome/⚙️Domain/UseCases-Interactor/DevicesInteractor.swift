@@ -13,7 +13,7 @@ class DevicesInteractorImpl: DevicesInteractor { // I GOT SOMEONE WHO
     let repoRemote: DevicesRepo
     
     init() {
-        repoRemote = DevicesRepoImpl()
+        repoRemote = DevicesRepo()
     }
     func getDevices(completion: @escaping ([Device])->()) {
         

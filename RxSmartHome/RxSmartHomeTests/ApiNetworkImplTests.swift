@@ -4,7 +4,8 @@
 
 import XCTest
 
-class ApiNetworkImplTests: XCTestCase {
+
+class ApiNetworkTests: XCTestCase {
     var sut: MockApiNetwork!
     override func setUp() {
         super.setUp()
@@ -63,9 +64,7 @@ class ApiNetworkImplTests: XCTestCase {
         wait(for: [exp], timeout: 1)
     }
     
-    
-    
-    class MockApiNetwork {
+    class MockApiNetwork: IApiNetwork {
         var shouldReturnError = false
         var responseFetch:String {
             if !shouldReturnError {
@@ -88,17 +87,6 @@ class ApiNetworkImplTests: XCTestCase {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 var jsonData =

@@ -1,12 +1,10 @@
 /// REPOSITORY <i>
-//  DevicesRepo.swift
+//  IDevicesRepo.swift
 //  Created by Eddy R on 08/02/2021.
 import Foundation
 
 // 👁👁🤝
-protocol DevicesRepo {
+protocol IDevicesRepo {
     typealias DevicesData<T> = T
      func fetchDevices(completion :@escaping (DevicesData<Any>)->())
-    // delete
-    // update
 }

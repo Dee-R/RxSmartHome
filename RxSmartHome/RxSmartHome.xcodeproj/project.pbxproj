@@ -29,15 +29,17 @@
 		93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2A25CC241C00402982 /* DevicesViewController.swift */; };
 		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
 		9374405825D1FC34007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
-		9374409225D29C39007F17D3 /* ApiNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetworkImpl.swift */; };
+		9374409225D29C39007F17D3 /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
 		9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
 		9374415A25D3057D007F17D3 /* ApiNetworkImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374415925D3057D007F17D3 /* ApiNetworkImplTests.swift */; };
 		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
 		93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */; };
-		93A642DE25D1B2E20071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* DevicesRepo.swift */; };
-		93A642E225D1B3200071A8DA /* DevicesRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepoImpl.swift */; };
+		93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
+		93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepo.swift */; };
 		93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */; };
-		93A642F025D1D5EB0071A8DA /* ApiNetworkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetworkImpl.swift */; };
+		93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
+		93DCC6E825DB1F790056B2E2 /* DevicesRepoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */; };
+		93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
 		93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */; };
@@ -107,10 +109,11 @@
 		9374415925D3057D007F17D3 /* ApiNetworkImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkImplTests.swift; sourceTree = "<group>"; };
 		9382955F25D5E1B4005FD3EA /* Cime */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cime; sourceTree = "<group>"; };
 		93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractor.swift; sourceTree = "<group>"; };
-		93A642DD25D1B2E20071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
-		93A642E125D1B3200071A8DA /* DevicesRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoImpl.swift; sourceTree = "<group>"; };
+		93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDevicesRepo.swift; sourceTree = "<group>"; };
+		93A642E125D1B3200071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
 		93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
-		93A642EF25D1D5EB0071A8DA /* ApiNetworkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkImpl.swift; sourceTree = "<group>"; };
+		93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetwork.swift; sourceTree = "<group>"; };
+		93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoTest.swift; sourceTree = "<group>"; };
 		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
 		93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCVCell.swift; sourceTree = "<group>"; };
@@ -312,7 +315,7 @@
 		93137DE625CC151C00402982 /* Repo Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				93A642DD25D1B2E20071A8DA /* DevicesRepo.swift */,
+				93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */,
 			);
 			path = "Repo Interfaces";
 			sourceTree = "<group>";
@@ -328,7 +331,7 @@
 		93137DE825CC155800402982 /* Repo impl */ = {
 			isa = PBXGroup;
 			children = (
-				93A642E125D1B3200071A8DA /* DevicesRepoImpl.swift */,
+				93A642E125D1B3200071A8DA /* DevicesRepo.swift */,
 			);
 			path = "Repo impl";
 			sourceTree = "<group>";
@@ -343,7 +346,7 @@
 		93137DEA25CC158400402982 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				93A642EF25D1D5EB0071A8DA /* ApiNetworkImpl.swift */,
+				93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -430,17 +433,10 @@
 		9374406E25D29262007F17D3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9374415F25D3154A007F17D3 /* Mocks */,
 				9374415925D3057D007F17D3 /* ApiNetworkImplTests.swift */,
+				93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */,
 			);
 			name = Data;
-			sourceTree = "<group>";
-		};
-		9374415F25D3154A007F17D3 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Mocks;
 			sourceTree = "<group>";
 		};
 		93F0D8AC25CC2DE1004BE652 /* Cell */ = {
@@ -589,10 +585,10 @@
 				93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */,
 				93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */,
 				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
-				93A642F025D1D5EB0071A8DA /* ApiNetworkImpl.swift in Sources */,
+				93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */,
 				93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */,
 				93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */,
-				93A642DE25D1B2E20071A8DA /* DevicesRepo.swift in Sources */,
+				93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */,
 				93137E3325CC258000402982 /* Dashboard.swift in Sources */,
 				93137E1F25CC21B600402982 /* AppDIBuilder.swift in Sources */,
 				93137D9D25CC127A00402982 /* ViewController.swift in Sources */,
@@ -600,7 +596,7 @@
 				93137D9925CC127A00402982 /* AppDelegate.swift in Sources */,
 				93137DA325CC127A00402982 /* RxSmartHome.xcdatamodeld in Sources */,
 				93137D9B25CC127A00402982 /* SceneDelegate.swift in Sources */,
-				93A642E225D1B3200071A8DA /* DevicesRepoImpl.swift in Sources */,
+				93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,9 +605,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
+				93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */,
 				9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */,
 				9374415A25D3057D007F17D3 /* ApiNetworkImplTests.swift in Sources */,
-				9374409225D29C39007F17D3 /* ApiNetworkImpl.swift in Sources */,
+				93DCC6E825DB1F790056B2E2 /* DevicesRepoTest.swift in Sources */,
+				9374409225D29C39007F17D3 /* ApiNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

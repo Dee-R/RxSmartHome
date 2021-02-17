@@ -4,7 +4,12 @@
 import Foundation
 
 // ⛔️⛔️
-class DevicesRepoImpl: DevicesRepo {
+class DevicesRepo: IDevicesRepo {
+    let apiNetwork : IApiNetwork
+    
+    init() {
+        apiNetwork = ApiNetwork()
+    }
     
     func fetchDevices(completion: @escaping (DevicesData<Any>) -> ()) {
         //renvoyer Devices by call api
