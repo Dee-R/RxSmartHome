@@ -30,11 +30,9 @@ class DevicesViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         buildUI()
         setting()
         bindindRx()
-        
         viewModel.showDevices()
     }
     override func viewDidAppear(_ animated: Bool) {
