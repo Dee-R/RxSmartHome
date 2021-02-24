@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93137DAD25CC127B00402982"
-               BuildableName = "RxSmartHomeTests.xctest"
-               BlueprintName = "RxSmartHomeTests"
+               BlueprintIdentifier = "93137DB825CC127B00402982"
+               BuildableName = "RxSmartHomeUITests.xctest"
+               BlueprintName = "RxSmartHomeUITests"
                ReferencedContainer = "container:RxSmartHome.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93137DB825CC127B00402982"
-               BuildableName = "RxSmartHomeUITests.xctest"
-               BlueprintName = "RxSmartHomeUITests"
+               BlueprintIdentifier = "93137DAD25CC127B00402982"
+               BuildableName = "RxSmartHomeTests.xctest"
+               BlueprintName = "RxSmartHomeTests"
                ReferencedContainer = "container:RxSmartHome.xcodeproj">
             </BuildableReference>
          </TestableReference>
