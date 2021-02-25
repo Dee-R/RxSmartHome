@@ -22,11 +22,17 @@ class ApiNetwork: NSObject {
               let unw_url = URL(string: unw_urlString) else { failure(NSError(domain: "ApiNetwork", code: 101, userInfo: nil)) ; return}
         guard let unw_session = session else { failure(NSError(domain: "ApiNetwork", code: 100, userInfo: nil)); return }
         
-        self.dataTask = unw_session.dataTask(with: unw_url) { (d, r, e) in
+        self.dataTask = unw_session.dataTask(with: unw_url) { (data, response, error) in
+            if let response = response as? HTTPURLResponse, let data = data {
+                if response.statusCode == 200 {
+                    success(data)
+                    return
+                }
+            }
             
         }
         
-//        dataTask?.resume()
+        dataTask?.resume()
     }
 }
 
