@@ -5,10 +5,10 @@ import Foundation
 
 // ⛔️⛔️
 class DevicesRepo: IDevicesRepo {
-    let apiNetwork : IApiNetwork
+    let apiNetwork : IApiNetwork? = nil
     
     init() {
-        apiNetwork = ApiNetwork()
+//        apiNetwork = ApiNetwork()
     }
     
     func fetchDevices(completion: @escaping (DevicesData<Any>) -> ()) {

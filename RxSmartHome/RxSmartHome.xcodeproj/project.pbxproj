@@ -32,9 +32,6 @@
 		9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
 		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
 		938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94BC25E648110055D143 /* ApiNetworkTests.swift */; };
-		938B94CA25E652040055D143 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94C925E652040055D143 /* URLSessionProtocol.swift */; };
-		938B94CB25E652040055D143 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94C925E652040055D143 /* URLSessionProtocol.swift */; };
-		938B94D225E6539B0055D143 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94D125E6539B0055D143 /* MockURLSession.swift */; };
 		93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */; };
 		93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
 		93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepo.swift */; };
@@ -111,8 +108,6 @@
 		9374415925D3057D007F17D3 /* appppppp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appppppp.swift; sourceTree = "<group>"; };
 		9382955F25D5E1B4005FD3EA /* Cime */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cime; sourceTree = "<group>"; };
 		938B94BC25E648110055D143 /* ApiNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkTests.swift; sourceTree = "<group>"; };
-		938B94C925E652040055D143 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
-		938B94D125E6539B0055D143 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractor.swift; sourceTree = "<group>"; };
 		93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDevicesRepo.swift; sourceTree = "<group>"; };
 		93A642E125D1B3200071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
@@ -246,7 +241,6 @@
 		93137DD525CC139C00402982 /* 📟Data */ = {
 			isa = PBXGroup;
 			children = (
-				938B94C825E651C90055D143 /* Protocol */,
 				93137DE825CC155800402982 /* Repo impl */,
 				93137DE925CC156D00402982 /* Persistent Storage */,
 				93137DEA25CC158400402982 /* Networking */,
@@ -439,28 +433,11 @@
 		9374406E25D29262007F17D3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				938B94D025E6536D0055D143 /* Mock */,
 				9374415925D3057D007F17D3 /* appppppp.swift */,
 				93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */,
 				938B94BC25E648110055D143 /* ApiNetworkTests.swift */,
 			);
 			name = Data;
-			sourceTree = "<group>";
-		};
-		938B94C825E651C90055D143 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				938B94C925E652040055D143 /* URLSessionProtocol.swift */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
-		938B94D025E6536D0055D143 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				938B94D125E6539B0055D143 /* MockURLSession.swift */,
-			);
-			name = Mock;
 			sourceTree = "<group>";
 		};
 		93F0D8AC25CC2DE1004BE652 /* Cell */ = {
@@ -604,7 +581,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938B94CA25E652040055D143 /* URLSessionProtocol.swift in Sources */,
 				93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */,
 				93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */,
 				93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */,
@@ -629,8 +605,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938B94D225E6539B0055D143 /* MockURLSession.swift in Sources */,
-				938B94CB25E652040055D143 /* URLSessionProtocol.swift in Sources */,
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
 				93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */,
 				9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */,

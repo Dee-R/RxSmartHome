@@ -12,19 +12,13 @@ class DevicesRepoTest: XCTestCase {
     var sut: SpyDeviceRepo!
     override func setUp() {
         super.setUp()
-        sut = SpyDeviceRepo(api: ApiNetwork())
+//        sut = SpyDeviceRepo(api: ApiNetwork())
     }
     override func tearDown() {
         sut = nil
         super.tearDown()
     }
     
-    func test_repo_getBack_DataFromApi_givenDeviceObjc() {
-        
-        sut.repoApiNetwok.fetch { (device, response) in
-            
-        }
-    }
     
     class SpyDeviceRepo {
         var repoApiNetwok: IApiNetwork
