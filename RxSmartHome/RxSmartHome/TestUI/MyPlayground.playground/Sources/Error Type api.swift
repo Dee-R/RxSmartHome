@@ -1,7 +1,7 @@
-//import UIKit
-//import PlaygroundSupport
+// import UIKit
+// import PlaygroundSupport
 //
-//class MyViewController : UIViewController {
+// class MyViewController : UIViewController {
 //    //    override func loadView() {
 //    //        let view = UIView()
 //    //        view.backgroundColor = .gray
@@ -28,22 +28,22 @@
 //            print(result)
 //        }
 //    }
-//}
+// }
 //
 //
 //
-//class FoodService {
+// class FoodService {
 //    func getFood(completion: @escaping (Result<String>)->Void ) {
 //        completion(Result.Success("ok"))
 //    }
-//}
+// }
 //
-//enum Result<T> {
+// enum Result<T> {
 //    case Success(T)
 //    case Failure(Error)
-//}
+// }
 //
 //
-//// Present the view controller in the Live View window
-//PlaygroundPage.current.liveView = MyViewController()
+// Present the view controller in the Live View window
+// PlaygroundPage.current.liveView = MyViewController()
 //

@@ -11,7 +11,7 @@ struct DeviceModel: Codable, Equatable {
     static func == (lhs: DeviceModel, rhs: DeviceModel) -> Bool {
         return lhs.devices == rhs.devices && lhs.user == rhs.user
     }
-    
+
     let devices: [Device]?
     let user: User?
 }
@@ -37,7 +37,7 @@ struct User: Codable, Equatable {
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.address == rhs.address && lhs.birthDate == rhs.birthDate && lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName
     }
-    
+
     let firstName, lastName: String?
     let address: Address?
     let birthDate: Int?

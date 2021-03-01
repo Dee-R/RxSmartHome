@@ -1,10 +1,10 @@
-//import UIKit
-//import RxSwift
-//import RxCocoa
-//import RxBlocking
-//import PlaygroundSupport
+// import UIKit
+// import RxSwift
+// import RxCocoa
+// import RxBlocking
+// import PlaygroundSupport
 //
-//class MyViewController : UIViewController {
+// class MyViewController : UIViewController {
 //    override func loadView() {
 //        let view = UIView()
 //        view.backgroundColor = .gray
@@ -25,8 +25,7 @@
 //
 //
 //    }
-//}
+// }
 //
-//// Present the view controller in the Live View window
-//PlaygroundPage.current.liveView = MyViewController()
-
+// Present the view controller in the Live View window
+// PlaygroundPage.current.liveView = MyViewController()

@@ -11,4 +11,3 @@ import XCTest
 class RxSmartHomeTests: XCTestCase {
 
 }
-

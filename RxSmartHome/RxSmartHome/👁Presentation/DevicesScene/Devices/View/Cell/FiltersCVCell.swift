@@ -10,18 +10,18 @@ class FiltersCVCell: UICollectionViewCell {
     internal static let reuseID = "FiltersCVCell"
     private static let fontcolor: UIColor = .gray5
     internal var filterLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Product type"
-        l.textColor = fontcolor
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Product type"
+        label.textColor = fontcolor
+        return label
     }()
-    
+
     override init(frame: CGRect) { // code
         super.init(frame: frame)
         layer.masksToBounds = true
         self.clipsToBounds = true
-        
+
         contentView.addSubview(filterLabel)
         NSLayoutConstraint.activate([
             filterLabel.topAnchor.constraint(equalTo: contentView.topAnchor),

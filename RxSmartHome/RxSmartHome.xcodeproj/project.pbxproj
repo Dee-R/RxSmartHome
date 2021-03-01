@@ -32,12 +32,14 @@
 		9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
 		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
 		938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94BC25E648110055D143 /* ApiNetworkTests.swift */; };
+		93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1F99625E7E4790017DCBC /* DeviceModelTests.swift */; };
+		93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1F9A225E816500017DCBC /* DevicesInteractorTests.swift */; };
 		93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */; };
 		93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
 		93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepo.swift */; };
 		93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */; };
 		93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
-		93DCC6E825DB1F790056B2E2 /* DevicesRepoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */; };
+		93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */; };
 		93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
@@ -105,15 +107,16 @@
 		93137E2A25CC241C00402982 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		9374405725D1FC34007F17D3 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
-		9374415925D3057D007F17D3 /* appppppp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appppppp.swift; sourceTree = "<group>"; };
 		9382955F25D5E1B4005FD3EA /* Cime */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cime; sourceTree = "<group>"; };
 		938B94BC25E648110055D143 /* ApiNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkTests.swift; sourceTree = "<group>"; };
+		93A1F99625E7E4790017DCBC /* DeviceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModelTests.swift; sourceTree = "<group>"; };
+		93A1F9A225E816500017DCBC /* DevicesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractorTests.swift; sourceTree = "<group>"; };
 		93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractor.swift; sourceTree = "<group>"; };
 		93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDevicesRepo.swift; sourceTree = "<group>"; };
 		93A642E125D1B3200071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
 		93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
 		93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetwork.swift; sourceTree = "<group>"; };
-		93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoTest.swift; sourceTree = "<group>"; };
+		93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoTests.swift; sourceTree = "<group>"; };
 		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
 		93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCVCell.swift; sourceTree = "<group>"; };
@@ -190,8 +193,8 @@
 		93137DB125CC127B00402982 /* RxSmartHomeTests */ = {
 			isa = PBXGroup;
 			children = (
-				9374406D25D2925A007F17D3 /* Domain */,
 				9374406C25D29251007F17D3 /* Presentation */,
+				9374406D25D2925A007F17D3 /* Domain */,
 				9374406E25D29262007F17D3 /* Data */,
 				93137DB225CC127B00402982 /* RxSmartHomeTests.swift */,
 				93137DB425CC127B00402982 /* Info.plist */,
@@ -426,6 +429,8 @@
 		9374406D25D2925A007F17D3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				93A1F99625E7E4790017DCBC /* DeviceModelTests.swift */,
+				93A1F9A225E816500017DCBC /* DevicesInteractorTests.swift */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -433,8 +438,7 @@
 		9374406E25D29262007F17D3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9374415925D3057D007F17D3 /* appppppp.swift */,
-				93DCC6E725DB1F790056B2E2 /* DevicesRepoTest.swift */,
+				93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */,
 				938B94BC25E648110055D143 /* ApiNetworkTests.swift */,
 			);
 			name = Data;
@@ -460,6 +464,7 @@
 				93137D9225CC127A00402982 /* Frameworks */,
 				93137D9325CC127A00402982 /* Resources */,
 				93137E1125CC202200402982 /* Embed Frameworks */,
+				93C284AE25ED4787009BD0CD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -477,6 +482,7 @@
 				93137DAA25CC127B00402982 /* Sources */,
 				93137DAB25CC127B00402982 /* Frameworks */,
 				93137DAC25CC127B00402982 /* Resources */,
+				93C284A725ED45C2009BD0CD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -576,6 +582,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		93C284A725ED45C2009BD0CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		93C284AE25ED4787009BD0CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93137D9125CC127A00402982 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -606,9 +649,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
+				93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */,
+				93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */,
 				93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */,
 				9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */,
-				93DCC6E825DB1F790056B2E2 /* DevicesRepoTest.swift in Sources */,
+				93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */,
 				938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

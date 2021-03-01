@@ -1442,7 +1442,7 @@ extension SentMessageTest {
         var invokedCount = 0
         createdObject.invokedMethod = {
             messageProcessingStage.append(.invoking)
-            invokedCount = invokedCount + 1
+            invokedCount +=  1
         }
         
         let expectedParameters = useIt(createdObject)

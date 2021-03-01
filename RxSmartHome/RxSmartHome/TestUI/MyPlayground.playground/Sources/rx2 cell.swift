@@ -1,7 +1,7 @@
-//import UIKit
-//import PlaygroundSupport
+// import UIKit
+// import PlaygroundSupport
 //
-//class MyViewController : UIViewController {
+// class MyViewController : UIViewController {
 //    override func loadView() {
 //        let view = UIView()
 //        view.backgroundColor = .gray
@@ -72,8 +72,8 @@
 //            devicesInfo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 //        ])
 //    }
-//}
+// }
 //
-//// Present the view controller in the Live View window
-//PlaygroundPage.current.liveView = MyViewController()
+// Present the view controller in the Live View window
+// PlaygroundPage.current.liveView = MyViewController()
 //

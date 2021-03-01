@@ -1,10 +1,10 @@
-//import UIKit
-//import RxSwift
-//import RxCocoa
-//import RxBlocking
-//import PlaygroundSupport
+// import UIKit
+// import RxSwift
+// import RxCocoa
+// import RxBlocking
+// import PlaygroundSupport
 //
-//class MyViewController : UIViewController {
+// class MyViewController : UIViewController {
 //    override func loadView() {
 //        let view = UIView()
 //        view.backgroundColor = .gray
@@ -133,12 +133,12 @@
 //        //        .disposed(by: bag)
 //        
 //    }
-//}
+// }
 //
 //
-//// MARK: - Custom Class
-//// FilterCell class
-//class Cell1: UICollectionViewCell {
+// MARK: - Custom Class
+//  FilterCell class
+// class Cell1: UICollectionViewCell {
 //    static let reuseID = "Cell1"
 //    fileprivate var titleLabel: UILabel = {
 //        let l = UILabel()
@@ -180,8 +180,8 @@
 //    required init?(coder: NSCoder) { // SB
 //        fatalError("init(coder:) has not been implemented")
 //    }
-//}
-//class Cell2: UICollectionViewCell {
+// }
+// class Cell2: UICollectionViewCell {
 //    static let reuseID = "FilterCollectionViewCell"
 //    fileprivate var titleLabel: UILabel = {
 //        let l = UILabel()
@@ -225,18 +225,18 @@
 //    required init?(coder: NSCoder) { // SB
 //        fatalError("init(coder:) has not been implemented")
 //    }
-//}
+// }
 //
 //
-//// Present the view controller in the Live View window
-//PlaygroundPage.current.liveView = MyViewController()
-//
-//
-//
+// Present the view controller in the Live View window
+// PlaygroundPage.current.liveView = MyViewController()
 //
 //
 //
-//class ViewModel {
+//
+//
+//
+// class ViewModel {
 //    fileprivate var filters = BehaviorSubject<[Filter]>(value: [])
 //    fileprivate var devices = BehaviorSubject<[Device]>(value: [])
 //    
@@ -260,9 +260,9 @@
 //            this.filters.onNext(arrFilter)
 //        }
 //    }
-//}
+// }
 //
-//class Api {
+// class Api {
 //    static func fetchDevice(completion: ([Device]) -> Void ) {
 //        let devices: [Device] = [
 //            Device(id: UUID(), productType: .light, deviceName: "room - light", mode: "On", intensity: 50, position: nil, temperature: nil),
@@ -274,15 +274,15 @@
 //        // send it back
 //        completion(devices) // je donne les data
 //    }
-//}
+// }
 //
-//enum ProductType: String {
+// enum ProductType: String {
 //    case light = "Light"
 //    case rollerShutter = "Roller Shutter"
 //    case heater = "Heater"
-//}
+// }
 //
-//struct Device {
+// struct Device {
 //    var id: UUID
 //    var productType: ProductType
 //    var deviceName: String
@@ -290,10 +290,10 @@
 //    var intensity: Int?
 //    var position: Int?
 //    var temperature: Float?
-//}
+// }
 //
-//struct Filter {
+// struct Filter {
 //    var name: String
 //    var isActivate: Bool = false
-//}
+// }
 //

@@ -1,4 +1,4 @@
-/// MARK: - VIEWMODEL Presenter
+//  VIEWMODEL Presenter
 //  DevicesViewModel.swift
 //  Created by Eddy R on 08/02/2021.
 import Foundation
@@ -18,21 +18,21 @@ protocol DeviceViewModel: DevicesViewModelInput, DevicesViewModelOutput {}
 // ⛔️⛔️
 class DevicesViewModelImpl: DeviceViewModel {
     var interactor: DevicesInteractor
-    internal var dataFilter = BehaviorSubject<[String]>(value: []) //    fileprivate var dataDevices = BehaviorSubject<[Int]>(value: Array(0...10))
+    internal var dataFilter = BehaviorSubject<[String]>(value: [])
+    //    fileprivate var dataDevices = BehaviorSubject<[Int]>(value: Array(0...10))
     internal var dataDevices = BehaviorSubject<[String]>(value: [])
     // ---
     init() {
-        
-        self.interactor = DevicesInteractorImpl()
+        self.interactor = DevicesInteractor()
     }
     func showDevices() {
         // demande interactor
         interactor.getDevices { [weak self] (devicesArr) in
             guard let this = self else {return}
             print(devicesArr)
-    
-            let datafilterReceived = ["Toto","tata","titi"]
-            let dataDevicesReceived = ["Toto","tata","titi"]
+
+            let datafilterReceived = ["Toto", "tata", "titi"]
+            let dataDevicesReceived = ["Toto", "tata", "titi"]
             this.dataFilter.onNext(datafilterReceived)
             this.dataDevices.onNext(dataDevicesReceived)
         }

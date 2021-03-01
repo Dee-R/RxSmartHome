@@ -1,27 +1,22 @@
-/// INTERACTOR / UseCase
+//  INTERACTOR / UseCase
 //  DevicesInteractor.swift
 //  Created by Eddy R on 08/02/2021.
 import Foundation
 
 // // 👁👁🤝
-protocol DevicesInteractor { // vm want ...
-    func getDevices(completion: @escaping ([Device])->())
+protocol IDevicesInteractor { // vm want ...
+    func getDevices(completion: @escaping ([Device]) -> Void)
 }
 
 // ⛔️⛔️
-class DevicesInteractorImpl: DevicesInteractor { // I GOT SOMEONE WHO
-    let repoRemote: DevicesRepo
-    
+class DevicesInteractor: IDevicesInteractor { // I GOT SOMEONE WHO
+    let repoRemote: IDevicesRepo
+
     init() {
         repoRemote = DevicesRepo()
     }
-    func getDevices(completion: @escaping ([Device])->()) {
-        
-        repoRemote.fetchDevices { (deviceModelObj) in
-            guard let deviceObj = deviceModelObj as? DeviceModel else { fatalError() }
-            guard let unwDevices = deviceObj.devices else { return }
-            completion(unwDevices)
+    func getDevices(completion: @escaping ([Device]) -> Void) {
+        repoRemote.fetchData { _, _ in
         }
     }
 }
-
