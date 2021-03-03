@@ -10,7 +10,6 @@ class Dashboard: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
 
         // -- Devices Scene --
-        // FIXME: should uses a DependencyInject
         let item1 = DevicesViewController(viewModel: DevicesViewModelImpl())
         let rootNavItemOne = UINavigationController(rootViewController: item1) // NavigationController + ViewController
         let icon1 = UITabBarItem(title: "Devices", image: UIImage(systemName: "doc.plaintext"), selectedImage: nil)
