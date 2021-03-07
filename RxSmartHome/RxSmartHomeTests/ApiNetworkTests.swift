@@ -5,120 +5,117 @@ import XCTest
 
 class ApiNetworkTests: XCTestCase {
     var sut: ApiNetwork!
+    var mockSession: MockSession!
     let urlValid: String = "http://storage42.com/modulotest/data.json"
-    let urlNil: String? = nil
-    let urlInvalid: String = ""
+    let badUrl: String = ""
+    let goodUrl: String = "goodUrl"
 
     override func setUp() {
         super.setUp()
         sut = ApiNetwork()
+        mockSession = MockSession()
     }
     override func tearDown() {
         sut = nil
+        mockSession = nil
         super.tearDown()
     }
+
     // url
-    func test_fetchFromUrl_getUrlNil_given_errorCode101() {
-        let expectation = self.expectation(description: "Expected failure block to be called with error code = 101")
+    func test_GivenBadUrl_whenFetch_thenGetErrorNotNil() {
+        var expError: NSError?
 
-        sut.fetchFromURL(urlString: urlNil, success: { _ in
-            // do nothing
-        }, failure: { (error) in
-            if error.code == 101 {
-                expectation.fulfill()
-            }
-        })
-        self.wait(for: [expectation], timeout: 0.1)
-    }
-    func test_fetchFromUrl_getUrlInvalid_given_errorCode101() {
-        let expectation = self.expectation(description: "Expected failure block to be called with error code = 101")
-        sut.fetchFromURL(urlString: urlInvalid, success: { (_) in
-            // do nothing
-        }, failure: { (error) in
-            if error.code == 101 {
-                expectation.fulfill()
-            }
-        })
-        self.wait(for: [expectation], timeout: 0.1)
-    }
+        let exp = expectation(description: "expected : error not nil")
+        sut.fetch(url: badUrl) { _, errorB  in
+            expError = errorB
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 0.01)
 
-    // session
-    func test_fetchFromUrl_withInvalidSession_given_ErrorCode100() {
-        let expectation = self.expectation(description: "Expected failure block to be called with error code = 100")
-        sut.session = nil
-        sut.fetchFromURL(urlString: urlValid, success: { (_) in }, failure: { (error) in
-            if error.code == 100 {
-                expectation.fulfill()
-            }
-        })
-        self.wait(for: [expectation], timeout: 1.0)
+        XCTAssertNotNil(expError)
     }
-    func test_fetchFromUrl_withvalidSession_given_NoError() {
-        let expectation = self.expectation(description: "Expected failure block to be called with error code = 100")
-        sut.fetchFromURL(urlString: urlValid, success: { (_) in
-            expectation.fulfill()
-        }, failure: { (_) in })
-        self.wait(for: [expectation], timeout: 1.0)
+    func test_GivenBadUrl_whenFetch_thenGetDataNil() {
+        var expData: Data?
+
+        let exp = expectation(description: "expected : data is nil")
+        sut.fetch(url: badUrl) { data, _ in
+            expData = data
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 0.01)
+        XCTAssertNil(expData)
     }
 
-    // data
-    func test_fetchFromUrl_callDataTaskOnUrlSession_given_sameUrlString() {
-        let exp = expectation(description: "expected called and get url")
-        guard let expURL = URL(string: urlValid) else { return }
 
-        // session
-        let mockURLSession = MockURLSession()
-        mockURLSession.expectation = exp
-        mockURLSession.expURL = expURL
-
-        sut.session = mockURLSession
-        sut.fetchFromURL(urlString: urlValid) { (_) in } failure: { (_) in }
-        wait(for: [exp], timeout: 1.0)
+    func test_GivenGoodUrl_whenFetch_thenErrorIsNil() {
+        var expError: NSError?
+        let exp = expectation(description: "expected : error is nil")
+        sut.fetch(url: goodUrl) { (_, error) in
+			expError = error
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 0.01)
+		XCTAssertNil(expError)
     }
-    func test_fetch_dataTaskGetCallOnSession_given_resumeGetCall() {
-        let expAssert = expectation(description: "expectation resume called on DataTask")
+    func test_GivenGoodUrl_whenFetch_thenDataNotNil() {
+        var expData: Data?
+        mockSession.nextData = "data".data(using: .utf8)
+        sut.session = mockSession
 
-        let mockURLSession: MockURLSession = MockURLSession()
-        mockURLSession.dataTaskToReturn?.resumeExpectation = expAssert
+        let exp = expectation(description: "expected : data not nil")
+        sut.fetch(url: goodUrl) { (data, _) in
+			expData = data
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 0.01)
+        XCTAssertNotNil(expData)
+    }
 
-        sut.session = mockURLSession
-        sut.fetchFromURL(urlString: urlValid, success: { _ in }, failure: { _ in })
-        wait(for: [expAssert], timeout: 1.0)
+    // integration test for difficult injection dependance
+    func test_GivenSession_whenFetch_thenSessionGetCalled() {
+        sut.session = mockSession
+        sut.fetch(url: goodUrl) { (_, _) in }
+        XCTAssertEqual(mockSession.getCalled, 1)
+    }
+    func test_GivenSession_whenFetch_thenResumeGetCalled() {
+		// session
+        // dataTask
+        let mockDataTask: MockDataTask = MockDataTask()
+        mockSession.dataTask = mockDataTask
+
+        // set session
+        sut.session = mockSession
+        sut.fetch(url: goodUrl, completion: { _, _ in })
+        XCTAssertEqual(mockDataTask.getCalled, 1)
+    }
+
+    func test_GivenDataBrut_whenFetch_thenGetObjc() {
+        var expData: Data?
+
+        let exp = expectation(description: "expected : Objc")
+        sut.fetch(url: goodUrl) { (data, _) in
+            expData = data
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 0.01)
     }
 }
-
-class MockURLSession: IURLSession {
-    var expectation: XCTestExpectation?
-    var expURL: URL?
-    var dataTaskToReturn: MockURLSessionDataTask?
-
+class MockSession: IURLSession {
+	var getCalled: Int = 0
+    var dataTask: URLSessionDataTask
+    var nextData: Data?
     init() {
-        dataTaskToReturn = MockURLSessionDataTask()
+        dataTask = MockDataTask()
     }
-    func dataTask(with url: URL,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void) -> URLSessionDataTask {
-        print("coucou")
-        if let unwExpurl = expURL, let exp = expectation {
-            if unwExpurl.absoluteString.compare(url.absoluteString) == .orderedSame {
-                exp.fulfill()
-            }
-        }
-        self.dataTaskToReturn?.completionHandler = completionHandler
-        return dataTaskToReturn!
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        getCalled += 1
+        completionHandler(nextData, nil, nil)
+        return dataTask
     }
 }
-class MockURLSessionDataTask: URLSessionDataTask {
-    var resumeExpectation: XCTestExpectation?
-    var completionHandler: ((Data?, URLResponse?, Error?) -> Swift.Void)?
-
-    var returnData: Data?
-    var returnURLResponse: URLResponse?
-    var returnError: Error?
-
+class MockDataTask: URLSessionDataTask {
+    var getCalled: Int = 0
     override func resume() {
-        self.resumeExpectation?.fulfill()
-        if let completionHandler = completionHandler {
-            completionHandler(self.returnData, self.returnURLResponse, returnError)
-        }
+		getCalled += 1
     }
 }
