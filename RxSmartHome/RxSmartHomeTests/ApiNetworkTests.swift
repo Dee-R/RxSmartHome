@@ -35,7 +35,7 @@ class ApiNetworkTests: XCTestCase {
         XCTAssertNotNil(expError)
     }
     func test_GivenBadUrl_whenFetch_thenGetDataNil() {
-        var expData: Data?
+        var expData: DeviceModel?
 
         let exp = expectation(description: "expected : data is nil")
         sut.fetch(url: badUrl) { data, _ in
@@ -50,24 +50,28 @@ class ApiNetworkTests: XCTestCase {
     func test_GivenGoodUrl_whenFetch_thenErrorIsNil() {
         var expError: NSError?
         let exp = expectation(description: "expected : error is nil")
+        mockSession.nextData = "{}".data(using: .utf8)
+        sut.session = mockSession
         sut.fetch(url: goodUrl) { (_, error) in
 			expError = error
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 0.01)
-		XCTAssertNil(expError)
+        wait(for: [exp], timeout: 0.05)
+        XCTAssertNil(expError)
     }
     func test_GivenGoodUrl_whenFetch_thenDataNotNil() {
-        var expData: Data?
-        mockSession.nextData = "data".data(using: .utf8)
+        var expData: DeviceModel?
+        mockSession.nextData = "{}".data(using: .utf8)
         sut.session = mockSession
 
         let exp = expectation(description: "expected : data not nil")
+
         sut.fetch(url: goodUrl) { (data, _) in
 			expData = data
             exp.fulfill()
         }
         wait(for: [exp], timeout: 0.01)
+
         XCTAssertNotNil(expData)
     }
 
@@ -89,15 +93,68 @@ class ApiNetworkTests: XCTestCase {
         XCTAssertEqual(mockDataTask.getCalled, 1)
     }
 
-    func test_GivenDataBrut_whenFetch_thenGetObjc() {
-        var expData: Data?
+	// decode
+    func test_GivenDataNil_whenParse_thenGetNil() {
+		// given
+        let dataBrut: Data? = nil
+        let expData: DeviceModel? = nil
 
-        let exp = expectation(description: "expected : Objc")
-        sut.fetch(url: goodUrl) { (data, _) in
-            expData = data
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 0.01)
+        // when
+        let actualData =  sut.parseData(dataBrut)
+
+        // then
+        XCTAssertEqual(actualData, expData)
+    }
+    func test_GivenDataNotNil_whenParse_thenGetData() {
+        // given
+        let dataBrut: Data? =
+		"""
+		{
+			"devices":
+			[
+				{
+					"id":0,
+					"deviceName": "-",
+					"productType": "Light",
+					"intensity": 0,
+					"mode": "OFF",
+					"position": 0,
+					"temperature": 0
+				}
+			],
+			"user": {
+				"firstName": "-",
+				"lastName": ""
+			}
+
+		}
+		""".data(using: .utf8)
+
+        let expData: DeviceModel? = DeviceModel(
+            devices: [
+                Device(
+                    id: 0,
+                    deviceName: "-",
+                    productType: .light,
+                    intensity: 0,
+                    mode: "OFF",
+                    position: 0,
+                    temperature: 0
+                )
+            ],
+            user: User(
+                firstName: "-",
+                lastName: "",
+                address: nil,
+                birthDate: nil
+            )
+        )
+
+        // when
+        let actualData =  sut.parseData(dataBrut)
+
+        // then
+        XCTAssertEqual(actualData, expData)
     }
 }
 class MockSession: IURLSession {
@@ -119,3 +176,4 @@ class MockDataTask: URLSessionDataTask {
 		getCalled += 1
     }
 }
+

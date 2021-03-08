@@ -1,5 +1,4 @@
 // ApiNetwork
-
 import Foundation
 
 // 👁👁🤝 Proper protocol
@@ -13,17 +12,24 @@ class ApiNetwork: NSObject {
     override init() {
         session = URLSession.shared
     }
-    func fetch(url: String, completion: @escaping(Data?, NSError?) -> Void) {
+    func fetch(url: String, completion: @escaping(DeviceModel?, NSError?) -> Void) {
         let error = NSError(domain: "Api", code: 100, userInfo: nil)
 		// URL
-        guard let unwURL = URL(string: url) else {
-            completion(nil, error)
-            return
-        }
+        guard let unwURL = URL(string: url) else { completion(nil, error); return }
+		// session
+        session.dataTask(with: unwURL) { [weak self] (data, _, _) in
+            guard let this = self else {return}
+            guard let unwDataB = data else { completion(nil, error); return }
 
-        session.dataTask(with: unwURL) { (data, _, _) in
-            completion(data, nil)
+            // parse json
+            let parsedJson: DeviceModel? = this.parseData(unwDataB)
+            completion(parsedJson, nil)
         }.resume()
+    }
+    func parseData(_ data: Data?) -> DeviceModel? {
+        guard let unwData = data else { return nil }
+        let data: DeviceModel? = try? JSONDecoder().decode(DeviceModel.self, from: unwData)
+        return data
     }
 }
 // session

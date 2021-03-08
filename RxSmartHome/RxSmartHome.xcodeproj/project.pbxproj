@@ -29,7 +29,6 @@
 		93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2A25CC241C00402982 /* DevicesViewController.swift */; };
 		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
 		9374405825D1FC34007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
-		9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
 		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
 		938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94BC25E648110055D143 /* ApiNetworkTests.swift */; };
 		93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1F99625E7E4790017DCBC /* DeviceModelTests.swift */; };
@@ -652,7 +651,6 @@
 				93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */,
 				93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */,
 				93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */,
-				9374409725D29CA1007F17D3 /* DeviceModel.swift in Sources */,
 				93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */,
 				938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */,
 			);
