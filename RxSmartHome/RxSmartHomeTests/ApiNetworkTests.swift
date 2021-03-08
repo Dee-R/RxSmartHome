@@ -103,7 +103,13 @@ class ApiNetworkTests: XCTestCase {
         let actualData =  sut.parseData(dataBrut)
 
         // then
-        XCTAssertEqual(actualData, expData)
+        XCTAssertEqual(actualData.devicemodel, expData)
+    }
+    func test_GivenWrongDataForParse_whenParse_thenGetError() {
+        var dataToParse = "{'api':[]}".data(using: .utf8)
+        var result = sut.parseData(dataToParse)
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result.error?.code, 101)
     }
     func test_GivenDataNotNil_whenParse_thenGetData() {
         // given
@@ -154,7 +160,7 @@ class ApiNetworkTests: XCTestCase {
         let actualData =  sut.parseData(dataBrut)
 
         // then
-        XCTAssertEqual(actualData, expData)
+        XCTAssertEqual(actualData.devicemodel, expData)
     }
 }
 class MockSession: IURLSession {

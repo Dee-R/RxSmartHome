@@ -21,15 +21,29 @@ class ApiNetwork: NSObject {
             guard let this = self else {return}
             guard let unwDataB = data else { completion(nil, error); return }
 
+
+            let resultParsing = this.parseData(unwDataB)
+            if let deviceModelParsed = resultParsing.devicemodel {
+                completion(deviceModelParsed, nil)
+            } else {
+                completion(nil, resultParsing.error)
+            }
             // parse json
-            let parsedJson: DeviceModel? = this.parseData(unwDataB)
-            completion(parsedJson, nil)
+//            if let parsedJson = this.parseData(unwDataB) {
+//                completion(parsedJson, nil)
+//            } else {
+//                completion(nil, NSError(domain: "Api Fetch Parse", code: 101, userInfo: nil))
+//            }
         }.resume()
     }
-    func parseData(_ data: Data?) -> DeviceModel? {
-        guard let unwData = data else { return nil }
-        let data: DeviceModel? = try? JSONDecoder().decode(DeviceModel.self, from: unwData)
-        return data
+    typealias ResultParsed = (devicemodel: DeviceModel?, error:NSError?)
+    func parseData(_ data: Data?) -> ResultParsed {
+        let error: NSError = NSError(domain: "Api Fetch Parse", code: 101, userInfo: nil)
+        guard let unwData = data else { return ResultParsed(nil, error) }
+        if let dataDecoded = try? JSONDecoder().decode(DeviceModel.self, from: unwData) {
+			return ResultParsed(dataDecoded, nil)
+        }
+        return ResultParsed(nil, error)
     }
 }
 // session
