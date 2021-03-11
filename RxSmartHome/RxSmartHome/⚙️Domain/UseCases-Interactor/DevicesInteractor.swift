@@ -17,7 +17,7 @@ class DevicesInteractor: IDevicesInteractor {
         devicesRepository = DevicesRepo()
     }
     func getDevices(completion: @escaping ([Device]) -> Void) {
-        devicesRepository?.getData(completion: { (_) in
-        })
+//        devicesRepository?.getData(completion: { (_) in
+//        })
     }
 }

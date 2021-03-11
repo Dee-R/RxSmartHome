@@ -3,19 +3,19 @@ import Foundation
 
 // ⛔️⛔️
 class DevicesRepo: IDevicesRepo {
-    var apiNetwork: IApiNetwork?
-    var url: String = "1234"
+    var apiNetwork: IApiNetwork
+    var url: String = ""
     init() {
-//        apiNetwork = ApiNetwork()
+        apiNetwork = ApiNetwork()
     }
-    func getData(completion: @escaping (DeviceModel?) -> Void) {
-		// data From api missing
-//        apiNetwork?.fetch(url: url, completion: { (deviceModelB, errorB) in
-//            if errorB == nil {
-//                completion(deviceModelB)
-//            } else {
-//                completion(nil)
-//            }
-//        })
+    func getDataDevices(completion: @escaping (DeviceModel?) -> Void) {
+        apiNetwork.fetch(url: url) { (result) in
+            do {
+                let deviceModelObjc = try result.get()
+                completion(deviceModelObjc)
+            } catch {
+                completion(nil)
+            }
+        }
     }
 }

@@ -38,6 +38,7 @@
 		93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepo.swift */; };
 		93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */; };
 		93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
+		93C3008D25FA280500E66E0B /* ApiNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3008C25FA280500E66E0B /* ApiNetworkError.swift */; };
 		93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
@@ -114,6 +115,7 @@
 		93A642E125D1B3200071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
 		93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
 		93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetwork.swift; sourceTree = "<group>"; };
+		93C3008C25FA280500E66E0B /* ApiNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkError.swift; sourceTree = "<group>"; };
 		93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoTests.swift; sourceTree = "<group>"; };
 		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				93137DD425CC138C00402982 /* ⚙️Domain */,
 				93137DD525CC139C00402982 /* 📟Data */,
 				93137DEC25CC15BC00402982 /* ---------------- */,
+				93C3008B25FA27DB00E66E0B /* Common */,
 				93137DF125CC160200402982 /* Supporting Files */,
 				93137DFA25CC16F900402982 /* TestUI */,
 			);
@@ -442,6 +445,14 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		93C3008B25FA27DB00E66E0B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				93C3008C25FA280500E66E0B /* ApiNetworkError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		93F0D8AC25CC2DE1004BE652 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C3008D25FA280500E66E0B /* ApiNetworkError.swift in Sources */,
 				93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */,
 				93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */,
 				93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */,

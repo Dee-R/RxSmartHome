@@ -2,20 +2,20 @@
 import Foundation
 
 // 👁👁🤝 Proper protocol
-protocol IApiNetwork {}
+protocol IApiNetwork {
+    func fetch(url: String, completion: @escaping(Result<DeviceModel, Error>) -> Void)
+}
 
 // ⛔️⛔️ Engine
-class ApiNetwork: NSObject {
+class ApiNetwork: NSObject, IApiNetwork {
     var session: IURLSession
     var dataTask: IURLSessionDataTask?
     override init() {
         session = URLSession.shared
-        dataTask = URLSessionDataTask()
+        //        dataTask = URLSessionDataTask()
     }
     func fetch(url: String, completion: @escaping(Result<DeviceModel, Error>) -> Void) {
         guard let unwUrl = URL(string: url) else { completion(.failure(ApiNetworkError.url));return }
-//        let objcDeviceModel = DeviceModel(devices: [Device(id: 1, deviceName: "", productType: .heater, intensity: 10, mode: "", position: 1, temperature: 1)], user: nil)
-
         // session
         dataTask = session.dataTaskCustom(with: unwUrl) {[weak self] (data, _, _) in
             guard let this = self else {return} // this
@@ -31,48 +31,16 @@ class ApiNetwork: NSObject {
         return dataParsed
     }
 }
-enum ApiNetworkError: Error {
-	case url
-    case parse
-}
 protocol IURLSession {
     func dataTaskCustom(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> IURLSessionDataTask
 }
 extension URLSession: IURLSession {
     func dataTaskCustom(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> IURLSessionDataTask {
-		dataTask(with: url, completionHandler: completionHandler) as IURLSessionDataTask
+        dataTask(with: url, completionHandler: completionHandler) as IURLSessionDataTask
     }
 }
 
 protocol IURLSessionDataTask {
-	func resume()
+    func resume()
 }
-extension URLSessionDataTask: IURLSessionDataTask {
-
-}
-
-/*
- class ApiNetwork: NSObject, IApiNetwork {
- typealias ResultParsed = (devicemodel: DeviceModel?, error: NSError?)
- var session: IURLSession
- var dataTask: URLSessionDataTask?
-
- override init() {
- session = URLSession.shared
- //        dataTask = URLSessionDataTask()
- }
- func fetch(url: String, completion: @escaping(Result<DeviceModel, Error>) -> Void) {
- guard let unwURL = URL(string: url) else { completion(.failure(ApiNetworkError.url));return }
- session.dataTask(with: unwURL) { (data, _, _) in
- completion(.success(DeviceModel(devices: [Device(id: 1, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)], user: nil)))
- }.resume()
- }
- }
- enum ApiNetworkError: Error {
- case url
- }
- protocol IURLSession {
- func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
- }
- extension URLSession: IURLSession {}
- */
+extension URLSessionDataTask: IURLSessionDataTask {}

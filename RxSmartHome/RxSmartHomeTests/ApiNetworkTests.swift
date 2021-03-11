@@ -129,7 +129,6 @@ class ApiNetworkTests: XCTestCase {
         let parseIsNil = sut.parse(parse)
         XCTAssertNil(parseIsNil)
     }
-
     func test_GivenMockSessionAndMockData_whenFetchWithSuccess_thenReturnSameData() {
 		// sets
         mockURLSession.nextDataTask = mockURLSessionDataTask
