@@ -9,14 +9,15 @@ protocol IDevicesInteractor { // vm want ...
 }
 
 // ⛔️⛔️
-class DevicesInteractor: IDevicesInteractor { // I GOT SOMEONE WHO
-    let repoRemote: IDevicesRepo
-
+class DevicesInteractor: IDevicesInteractor {
+	// I GOT SOMEONE WHO
+//    let repoRemote: IDevicesRepo?
+    let devicesRepository: IDevicesRepo?
     init() {
-        repoRemote = DevicesRepo()
+        devicesRepository = DevicesRepo()
     }
     func getDevices(completion: @escaping ([Device]) -> Void) {
-        repoRemote.fetchData { _, _ in
-        }
+        devicesRepository?.getData(completion: { (_) in
+        })
     }
 }

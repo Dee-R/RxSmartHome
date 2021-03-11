@@ -5,5 +5,5 @@ import Foundation
 
 // 👁👁🤝
 protocol IDevicesRepo {
-    func fetchData(completion: @escaping(Data?, NSError?) -> Void)
+    func getData(completion: @escaping (DeviceModel?) -> Void)
 }

@@ -38,6 +38,11 @@
                BlueprintName = "RxSmartHomeUITests"
                ReferencedContainer = "container:RxSmartHome.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "RxSmartHomeUITests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -48,6 +53,17 @@
                BlueprintName = "RxSmartHomeTests"
                ReferencedContainer = "container:RxSmartHome.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DevicesInteractorTests">
+               </Test>
+               <Test
+                  Identifier = "DevicesRepoTests">
+               </Test>
+               <Test
+                  Identifier = "RxSmartHomeTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

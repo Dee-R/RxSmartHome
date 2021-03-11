@@ -1,21 +1,21 @@
 //  REPOSITORY impl
-//  DevicesRepoImpl.swift
-//  Created by Eddy R on 08/02/2021.
 import Foundation
 
 // ⛔️⛔️
 class DevicesRepo: IDevicesRepo {
     var apiNetwork: IApiNetwork?
-    var urlString: String? = "--"
-
+    var url: String = "1234"
     init() {
 //        apiNetwork = ApiNetwork()
     }
-    func fetchData(completion: @escaping(Data?, NSError?) -> Void) {
-//        apiNetwork?.fetchFromURL(urlString: urlString, success: { (data) in
-//            completion(data, nil)
-//        }, failure: { _ in
-//            completion(nil, NSError())
+    func getData(completion: @escaping (DeviceModel?) -> Void) {
+		// data From api missing
+//        apiNetwork?.fetch(url: url, completion: { (deviceModelB, errorB) in
+//            if errorB == nil {
+//                completion(deviceModelB)
+//            } else {
+//                completion(nil)
+//            }
 //        })
     }
 }

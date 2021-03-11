@@ -39,7 +39,6 @@
 		93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */; };
 		93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
 		93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */; };
-		93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
 		93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */; };
@@ -650,7 +649,6 @@
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
 				93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */,
 				93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */,
-				93DCC6F625DB25350056B2E2 /* IDevicesRepo.swift in Sources */,
 				93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */,
 				938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */,
 			);

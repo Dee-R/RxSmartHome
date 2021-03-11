@@ -5,181 +5,187 @@ import XCTest
 
 class ApiNetworkTests: XCTestCase {
     var sut: ApiNetwork!
-    var mockSession: MockSession!
-    let urlValid: String = "http://storage42.com/modulotest/data.json"
-    let badUrl: String = ""
-    let goodUrl: String = "goodUrl"
-
+    var mockURLSession: MockURLSession!
+    var mockURLSessionDataTask: MockURLSessionDataTask!
+    var urlGood = "http://storage42.com/modulotest/data.json"
+    var urlBad = ""
     override func setUp() {
         super.setUp()
         sut = ApiNetwork()
-        mockSession = MockSession()
+        mockURLSession = MockURLSession()
+        mockURLSessionDataTask = MockURLSessionDataTask()
     }
     override func tearDown() {
         sut = nil
-        mockSession = nil
+        mockURLSession = nil
         super.tearDown()
     }
-
-    // url
-    func test_GivenBadUrl_whenFetch_thenGetErrorNotNil() {
-        var expError: NSError?
-
-        let exp = expectation(description: "expected : error not nil")
-        sut.fetch(url: badUrl) { _, errorB  in
-            expError = errorB
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 0.01)
-
-        XCTAssertNotNil(expError)
+    // instance
+    // Url
+    func test_GivenInstance_whenInit_thenInstanceNotNil() {
+    	XCTAssertNotNil(sut)
     }
-    func test_GivenBadUrl_whenFetch_thenGetDataNil() {
-        var expData: DeviceModel?
+    func test_GivenGoodUrl_whenFetch_thenExpectDeviceModelIsNotNil() {
+		// A
+        mockURLSession.nextDataTask = mockURLSessionDataTask // dataTask
+        mockURLSession.nextData = "{}".data(using: .utf8)
+        sut.session = mockURLSession // sets Session
 
-        let exp = expectation(description: "expected : data is nil")
-        sut.fetch(url: badUrl) { data, _ in
-            expData = data
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 0.01)
-        XCTAssertNil(expData)
-    }
-
-
-    func test_GivenGoodUrl_whenFetch_thenErrorIsNil() {
-        var expError: NSError?
-        let exp = expectation(description: "expected : error is nil")
-        mockSession.nextData = "{}".data(using: .utf8)
-        sut.session = mockSession
-        sut.fetch(url: goodUrl) { (_, error) in
-			expError = error
-            exp.fulfill()
+        // M
+        let exp = expectation(description: "expected : deviceModel should be not nil")
+        sut.fetch(url: urlGood) { (result) in
+            // B???
+            do {
+                let objc = try result.get()
+                XCTAssertNotNil(objc)
+                exp.fulfill()
+            } catch { XCTFail("should not fail") }
         }
         wait(for: [exp], timeout: 0.05)
-        XCTAssertNil(expError)
     }
-    func test_GivenGoodUrl_whenFetch_thenDataNotNil() {
-        var expData: DeviceModel?
-        mockSession.nextData = "{}".data(using: .utf8)
-        sut.session = mockSession
-
-        let exp = expectation(description: "expected : data not nil")
-
-        sut.fetch(url: goodUrl) { (data, _) in
-			expData = data
-            exp.fulfill()
+    func test_GivenBadUrl_whenFetch_thenExpectErrorUrl() {
+		let exp = expectation(description: "must return an error of url")
+        sut.fetch(url: urlBad) { (result) in
+            do {
+                _ = try result.get()
+				XCTFail("Must not succeed")
+            } catch let error {
+                if case ApiNetworkError.url = error {
+                    exp.fulfill()
+                } else {
+                    XCTFail("dit not thrown the right error")
+                }
+            }
         }
-        wait(for: [exp], timeout: 0.01)
-
-        XCTAssertNotNil(expData)
+        wait(for: [exp], timeout: 0.05)
     }
-
-    // integration test for difficult injection dependance
-    func test_GivenSession_whenFetch_thenSessionGetCalled() {
-        sut.session = mockSession
-        sut.fetch(url: goodUrl) { (_, _) in }
-        XCTAssertEqual(mockSession.getCalled, 1)
+	// Session
+    func test_GivenSession_whenFetch_thenSessionGetsCall() {
+        // session mock used
+        sut.session = mockURLSession
+        sut.fetch(url: urlGood, completion: { _ in })
+        XCTAssertEqual(mockURLSession.getCalled, 1)
     }
-    func test_GivenSession_whenFetch_thenResumeGetCalled() {
-		// session
-        // dataTask
-        let mockDataTask: MockDataTask = MockDataTask()
-        mockSession.dataTask = mockDataTask
-
-        // set session
-        sut.session = mockSession
-        sut.fetch(url: goodUrl, completion: { _, _ in })
-        XCTAssertEqual(mockDataTask.getCalled, 1)
+    func test_GivenSession_whenFetch_thenResumeGetsCall() {
+		// sets
+        mockURLSession.nextDataTask = mockURLSessionDataTask
+        sut.session = mockURLSession
+		// when
+        sut.fetch(url: urlGood, completion: { _ in })
+		// then
+        XCTAssertEqual(mockURLSessionDataTask.getCalled, 1)
     }
+    // Parsing
+    func test_GivenSpecificData_whenParse_thenGetSameData() {
+		// dataParsed
+        let brutData =
+"""
+{
+"devices": []
+}
+""".data(using: .utf8)
+        let dataParsed = sut.parse(brutData)
 
-	// decode
-    func test_GivenDataNil_whenParse_thenGetNil() {
-		// given
-        let dataBrut: Data? = nil
-        let expData: DeviceModel? = nil
-
-        // when
-        let actualData =  sut.parseData(dataBrut)
-
-        // then
-        XCTAssertEqual(actualData.devicemodel, expData)
+        // dataExpected
+        let dataExpected = DeviceModel(devices: [], user: nil)
+        // DeviceModel(devices: Optional([]), user: nil)
+        XCTAssertEqual(dataParsed, dataExpected)
     }
-    func test_GivenWrongDataForParse_whenParse_thenGetError() {
-        var dataToParse = "{'api':[]}".data(using: .utf8)
-        var result = sut.parseData(dataToParse)
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result.error?.code, 101)
-    }
-    func test_GivenDataNotNil_whenParse_thenGetData() {
-        // given
-        let dataBrut: Data? =
-		"""
+    func test_GivenSpecificData_whenParse_thenGetSameData2() {
+        // dataParsed
+        let brutData =
+            """
+{
+"devices":
+	[
 		{
-			"devices":
-			[
-				{
-					"id":0,
-					"deviceName": "-",
-					"productType": "Light",
-					"intensity": 0,
-					"mode": "OFF",
-					"position": 0,
-					"temperature": 0
-				}
-			],
-			"user": {
-				"firstName": "-",
-				"lastName": ""
-			}
-
+			"id": 1,
+        	"deviceName": "Lampe - Cuisine",
+        	"intensity": 50,
+        	"mode": "ON",
+        	"productType": "Light"
 		}
-		""".data(using: .utf8)
+	]
+}
+""".data(using: .utf8)
+        let dataParsed = sut.parse(brutData)
 
-        let expData: DeviceModel? = DeviceModel(
+        // dataExpected
+        let dataExpected = DeviceModel(
             devices: [
                 Device(
-                    id: 0,
-                    deviceName: "-",
+                    id: 1,
+                    deviceName: "Lampe - Cuisine",
                     productType: .light,
-                    intensity: 0,
-                    mode: "OFF",
-                    position: 0,
-                    temperature: 0
-                )
-            ],
-            user: User(
-                firstName: "-",
-                lastName: "",
-                address: nil,
-                birthDate: nil
-            )
-        )
-
-        // when
-        let actualData =  sut.parseData(dataBrut)
-
-        // then
-        XCTAssertEqual(actualData.devicemodel, expData)
+                    intensity: 50, mode: "ON",
+                    position: nil,
+                    temperature: nil)],
+            user: nil)
+        // DeviceModel(devices: Optional([]), user: nil)
+        XCTAssertEqual(dataParsed, dataExpected)
     }
+    func test_GivenSpecificData_whenErrorOfParsing_thenGetNil() {
+        let parse = "{AZER}".data(using: .utf8)
+        let parseIsNil = sut.parse(parse)
+        XCTAssertNil(parseIsNil)
+    }
+
+    func test_GivenMockSessionAndMockData_whenFetchWithSuccess_thenReturnSameData() {
+		// sets
+        mockURLSession.nextDataTask = mockURLSessionDataTask
+        mockURLSession.nextData =   """
+{
+"devices":
+    [
+        {
+            "id": 1,
+            "deviceName": "Lampe - Cuisine",
+            "intensity": 50,
+            "mode": "ON",
+            "productType": "Light"
+        }
+    ]
 }
-class MockSession: IURLSession {
-	var getCalled: Int = 0
-    var dataTask: URLSessionDataTask
+""".data(using: .utf8)
+
+        sut.session = mockURLSession
+        let expectedObjc: DeviceModel = DeviceModel(
+            devices: [
+                Device(id: 1, deviceName: "Lampe - Cuisine", productType: .light, intensity: 50, mode: "ON", position: nil, temperature: nil)
+            ], user: nil) // device model expected
+        // when
+        let exp = expectation(description: "expected : return back same data")
+        sut.fetch(url: urlGood) { (result) in
+            // B???
+            do {
+                let objc = try result.get()
+                XCTAssertEqual(objc, expectedObjc)
+                exp.fulfill()
+            } catch {
+                XCTFail("should not have failed")
+            }
+        }
+        wait(for: [exp], timeout: 0.05)
+    }
+
+}
+class MockURLSession: IURLSession {
+    var getCalled: Int = 0
+    var nextDataTask: MockURLSessionDataTask
     var nextData: Data?
     init() {
-        dataTask = MockDataTask()
+        nextDataTask = MockURLSessionDataTask()
     }
-    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+    func dataTaskCustom(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> IURLSessionDataTask {
+		completionHandler(nextData, nil, nil)
         getCalled += 1
-        completionHandler(nextData, nil, nil)
-        return dataTask
+        return nextDataTask
     }
+
 }
-class MockDataTask: URLSessionDataTask {
+class MockURLSessionDataTask: URLSessionDataTask {
     var getCalled: Int = 0
     override func resume() {
-		getCalled += 1
+        getCalled += 1
     }
 }
-
