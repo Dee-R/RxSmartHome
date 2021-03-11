@@ -64,7 +64,6 @@ class DevicesRepoTests: XCTestCase {
         }
         wait(for: [exp], timeout: 0.05)
     }
-
 }
 enum StubError: Error {
     case error1

@@ -10,14 +10,19 @@ protocol IDevicesInteractor { // vm want ...
 
 // ⛔️⛔️
 class DevicesInteractor: IDevicesInteractor {
-	// I GOT SOMEONE WHO
-//    let repoRemote: IDevicesRepo?
-    let devicesRepository: IDevicesRepo?
+    var devicesRepository: IDevicesRepo
     init() {
         devicesRepository = DevicesRepo()
     }
     func getDevices(completion: @escaping ([Device]) -> Void) {
-//        devicesRepository?.getData(completion: { (_) in
-//        })
+        devicesRepository.getDataDevices { (deviceModelObjc) in
+            if let deviceArray = deviceModelObjc?.devices {
+                completion(deviceArray)
+            } else {
+				completion([])
+            }
+//            completion(deviceList) // give back array of device to view model
+        }
+
     }
 }
