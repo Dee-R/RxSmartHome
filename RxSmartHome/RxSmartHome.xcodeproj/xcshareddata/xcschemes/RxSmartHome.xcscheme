@@ -45,7 +45,8 @@
             </SkippedTests>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "93137DAD25CC127B00402982"
@@ -53,6 +54,23 @@
                BlueprintName = "RxSmartHomeTests"
                ReferencedContainer = "container:RxSmartHome.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DevicesRepoTests/test_GivenInstanceOfApi_whenInitDeviceRepo_thenApiNetworkIsNotNil()">
+               </Test>
+               <Test
+                  Identifier = "DevicesRepoTests/test_GivenInstance_whenInit_thenInstanceNotNil()">
+               </Test>
+               <Test
+                  Identifier = "DevicesRepoTests/test_GivenMockApiFetchData_whenFailToGetDataDevices_thenReturnNil()">
+               </Test>
+               <Test
+                  Identifier = "DevicesRepoTests/test_GivenMockApiFetchData_whenGetDataDevices_thenReturnParticularDataGivenInTheMock()">
+               </Test>
+               <Test
+                  Identifier = "DevicesRepoTests/test_GivenUrlForApiNetworksInstance_whenGetData_thenDataReturnIsNotNil()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

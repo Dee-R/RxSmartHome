@@ -4,7 +4,7 @@
 import Foundation
 
 // // 👁👁🤝
-protocol IDevicesInteractor { // vm want ...
+protocol IDevicesInteractor {
     func getDevices(completion: @escaping ([Device]) -> Void)
 }
 
@@ -21,8 +21,6 @@ class DevicesInteractor: IDevicesInteractor {
             } else {
 				completion([])
             }
-//            completion(deviceList) // give back array of device to view model
         }
-
     }
 }

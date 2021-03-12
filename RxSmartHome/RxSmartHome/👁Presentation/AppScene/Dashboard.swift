@@ -10,7 +10,7 @@ class Dashboard: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
 
         // -- Devices Scene --
-        let item1 = DevicesViewController(viewModel: DevicesViewModelImpl())
+        let item1 = DevicesViewController(viewModel: DevicesViewModel())
         let rootNavItemOne = UINavigationController(rootViewController: item1) // NavigationController + ViewController
         let icon1 = UITabBarItem(title: "Devices", image: UIImage(systemName: "doc.plaintext"), selectedImage: nil)
         item1.tabBarItem = icon1

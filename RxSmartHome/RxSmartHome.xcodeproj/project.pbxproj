@@ -28,6 +28,8 @@
 		93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2225CC220B00402982 /* AppEnvironment.swift */; };
 		93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2A25CC241C00402982 /* DevicesViewController.swift */; };
 		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
+		9356D6FD25FB7E140087B3F6 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D6FC25FB7E140087B3F6 /* PersistentStorage.swift */; };
+		9356D70325FB81B40087B3F6 /* PersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D70225FB81B40087B3F6 /* PersistentStorageTests.swift */; };
 		9374405825D1FC34007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
 		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
 		938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94BC25E648110055D143 /* ApiNetworkTests.swift */; };
@@ -39,6 +41,7 @@
 		93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */; };
 		93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
 		93C3008D25FA280500E66E0B /* ApiNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3008C25FA280500E66E0B /* ApiNetworkError.swift */; };
+		93C3009125FA3B4700E66E0B /* DevicesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3009025FA3B4700E66E0B /* DevicesViewModelTests.swift */; };
 		93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
@@ -105,6 +108,8 @@
 		93137E2225CC220B00402982 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		93137E2A25CC241C00402982 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		9356D6FC25FB7E140087B3F6 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistentStorage.swift; path = "RxSmartHome/⚙️Domain/Repo Interfaces/PersistentStorage.swift"; sourceTree = SOURCE_ROOT; };
+		9356D70225FB81B40087B3F6 /* PersistentStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorageTests.swift; sourceTree = "<group>"; };
 		9374405725D1FC34007F17D3 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		9382955F25D5E1B4005FD3EA /* Cime */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cime; sourceTree = "<group>"; };
 		938B94BC25E648110055D143 /* ApiNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkTests.swift; sourceTree = "<group>"; };
@@ -116,6 +121,7 @@
 		93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
 		93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetwork.swift; sourceTree = "<group>"; };
 		93C3008C25FA280500E66E0B /* ApiNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkError.swift; sourceTree = "<group>"; };
+		93C3009025FA3B4700E66E0B /* DevicesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModelTests.swift; sourceTree = "<group>"; };
 		93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoTests.swift; sourceTree = "<group>"; };
 		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
@@ -343,6 +349,7 @@
 		93137DE925CC156D00402982 /* Persistent Storage */ = {
 			isa = PBXGroup;
 			children = (
+				9356D6FC25FB7E140087B3F6 /* PersistentStorage.swift */,
 			);
 			path = "Persistent Storage";
 			sourceTree = "<group>";
@@ -423,6 +430,7 @@
 		9374406C25D29251007F17D3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				93C3009025FA3B4700E66E0B /* DevicesViewModelTests.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -441,6 +449,7 @@
 			children = (
 				93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */,
 				938B94BC25E648110055D143 /* ApiNetworkTests.swift */,
+				9356D70225FB81B40087B3F6 /* PersistentStorageTests.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -641,6 +650,7 @@
 				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
 				93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */,
 				93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */,
+				9356D6FD25FB7E140087B3F6 /* PersistentStorage.swift in Sources */,
 				93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */,
 				93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */,
 				93137E3325CC258000402982 /* Dashboard.swift in Sources */,
@@ -662,6 +672,8 @@
 				93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */,
 				93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */,
 				93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */,
+				9356D70325FB81B40087B3F6 /* PersistentStorageTests.swift in Sources */,
+				93C3009125FA3B4700E66E0B /* DevicesViewModelTests.swift in Sources */,
 				938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

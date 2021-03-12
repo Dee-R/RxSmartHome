@@ -16,7 +16,7 @@ protocol DevicesViewModelOutput {
 protocol DeviceViewModel: DevicesViewModelInput, DevicesViewModelOutput {}
 
 // ⛔️⛔️
-class DevicesViewModelImpl: DeviceViewModel {
+class DevicesViewModel: DeviceViewModel {
     var interactor: DevicesInteractor
     internal var dataFilter = BehaviorSubject<[String]>(value: [])
     //    fileprivate var dataDevices = BehaviorSubject<[Int]>(value: Array(0...10))
@@ -31,8 +31,25 @@ class DevicesViewModelImpl: DeviceViewModel {
             guard let this = self else {return}
             print(devicesArr)
 
-            let datafilterReceived = ["Toto", "tata", "titi"]
-            let dataDevicesReceived = ["Toto", "tata", "titi"]
+//            let datafilterReceived = ["Toto", "tata", "titi"]
+//            let dataDevicesReceived = ["Toto", "tata", "titi"]
+
+
+            // get all product device
+            let arrayDeviceProductDevices = devicesArr.map { (device) -> String in
+                return (device.deviceName ?? "device ???")
+            }
+
+            // get all product filter
+            let arrayDeviceProductFilter = devicesArr.map { (device) -> String in
+                return device.productType?.rawValue ?? ""
+            }
+
+
+            // set view
+            let dataDevicesReceived = arrayDeviceProductDevices
+            let datafilterReceived = arrayDeviceProductFilter
+
             this.dataFilter.onNext(datafilterReceived)
             this.dataDevices.onNext(dataDevicesReceived)
         }

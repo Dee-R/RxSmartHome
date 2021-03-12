@@ -12,18 +12,18 @@ struct DeviceModel: Codable, Equatable {
         return lhs.devices == rhs.devices && lhs.user == rhs.user
     }
 
-    let devices: [Device]?
-    let user: User?
+    var devices: [Device]?
+    var user: User?
 }
 
 // MARK: - Device
 struct Device: Codable, Equatable {
-    let id: Int?
-    let deviceName: String?
-    let productType: ProductType?
-    let intensity: Int?
-    let mode: String?
-    let position, temperature: Int?
+    var id: Int?
+    var deviceName: String?
+    var productType: ProductType?
+    var intensity: Int?
+    var mode: String?
+    var position, temperature: Int?
 }
 
 enum ProductType: String, Codable {
@@ -38,14 +38,14 @@ struct User: Codable, Equatable {
         return lhs.address == rhs.address && lhs.birthDate == rhs.birthDate && lhs.firstName == rhs.firstName && lhs.lastName == rhs.lastName
     }
 
-    let firstName, lastName: String?
-    let address: Address?
-    let birthDate: Int?
+    var firstName, lastName: String?
+    var address: Address?
+    var birthDate: Int?
 }
 
 // MARK: - Address
 struct Address: Codable, Equatable {
-    let city: String?
-    let postalCode: Int?
-    let street, streetCode, country: String?
+    var city: String?
+    var postalCode: Int?
+    var street, streetCode, country: String?
 }
