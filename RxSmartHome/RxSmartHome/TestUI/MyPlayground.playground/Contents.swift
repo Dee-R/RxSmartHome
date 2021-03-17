@@ -4,7 +4,7 @@ import UIKit
  import RxBlocking
  import PlaygroundSupport
 // 300 - 600
- class MyViewController : UIViewController {
+ class MyViewController: UIViewController {
     override func loadView() {
         let view = UIView()
         view.backgroundColor = .gray

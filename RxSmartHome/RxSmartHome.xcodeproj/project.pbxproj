@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930B153F25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B153D25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift */; };
+		930B154025FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B153E25FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift */; };
+		930B154525FC2B7600F8117A /* RxSmartHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */; };
+		930B154825FC2B7700F8117A /* RxSmartHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */; };
 		93137D9925CC127A00402982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137D9825CC127A00402982 /* AppDelegate.swift */; };
 		93137D9B25CC127A00402982 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137D9A25CC127A00402982 /* SceneDelegate.swift */; };
 		93137D9D25CC127A00402982 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137D9C25CC127A00402982 /* ViewController.swift */; };
 		93137DA025CC127A00402982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93137D9E25CC127A00402982 /* Main.storyboard */; };
-		93137DA325CC127A00402982 /* RxSmartHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */; };
 		93137DA525CC127B00402982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93137DA425CC127B00402982 /* Assets.xcassets */; };
 		93137DA825CC127B00402982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93137DA625CC127B00402982 /* LaunchScreen.storyboard */; };
 		93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137DB225CC127B00402982 /* RxSmartHomeTests.swift */; };
@@ -83,6 +86,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		930B153D25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		930B153E25FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		93137D9525CC127A00402982 /* RxSmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93137D9825CC127A00402982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93137D9A25CC127A00402982 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +323,8 @@
 		93137DE525CC14CA00402982 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				930B153D25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift */,
+				930B153E25FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -650,16 +657,18 @@
 				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
 				93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */,
 				93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */,
+				930B153F25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift in Sources */,
 				9356D6FD25FB7E140087B3F6 /* PersistentStorage.swift in Sources */,
 				93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */,
 				93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */,
 				93137E3325CC258000402982 /* Dashboard.swift in Sources */,
 				93137E1F25CC21B600402982 /* AppDIBuilder.swift in Sources */,
+				930B154525FC2B7600F8117A /* RxSmartHome.xcdatamodeld in Sources */,
 				93137D9D25CC127A00402982 /* ViewController.swift in Sources */,
 				9374405825D1FC34007F17D3 /* DeviceModel.swift in Sources */,
 				93137D9925CC127A00402982 /* AppDelegate.swift in Sources */,
-				93137DA325CC127A00402982 /* RxSmartHome.xcdatamodeld in Sources */,
 				93137D9B25CC127A00402982 /* SceneDelegate.swift in Sources */,
+				930B154025FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift in Sources */,
 				93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,6 +679,7 @@
 			files = (
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
 				93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */,
+				930B154825FC2B7700F8117A /* RxSmartHome.xcdatamodeld in Sources */,
 				93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */,
 				93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */,
 				9356D70325FB81B40087B3F6 /* PersistentStorageTests.swift in Sources */,

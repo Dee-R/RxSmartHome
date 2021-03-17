@@ -25,10 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        CoreDataStorage.shared.saveContext()
-    }
-    // MARK: - Core Data stack
+    func applicationDidEnterBackground(_ application: UIApplication) { }
+
+    // MARK: - Cloud
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         /*
          The persistent container for the application. This implementation
@@ -55,8 +54,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    // MARK: - Core Data Saving support
+    lazy var persitentContainerCD: NSPersistentContainer = {
+        // lazy doesn't run code until access for the first time
+        let container = NSPersistentContainer(name: "RxSmartHome")
+        container.loadPersistentStores { ( _, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        return container
+    }()
     func saveContext () {
+        // get the context and save it wheather any change is occured
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

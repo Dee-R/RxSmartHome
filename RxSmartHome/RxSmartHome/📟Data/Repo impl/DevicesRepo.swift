@@ -4,7 +4,6 @@ import Foundation
 // ⛔️⛔️
 class DevicesRepo: IDevicesRepo {
     var apiNetwork: IApiNetwork
-    
     var url: String = "http://storage42.com/modulotest/data.json"
     init() {
         apiNetwork = ApiNetwork()
