@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		930B153F25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B153D25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift */; };
-		930B154025FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B153E25FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift */; };
-		930B154525FC2B7600F8117A /* RxSmartHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */; };
-		930B154825FC2B7700F8117A /* RxSmartHome.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */; };
 		93137D9925CC127A00402982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137D9825CC127A00402982 /* AppDelegate.swift */; };
 		93137D9B25CC127A00402982 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137D9A25CC127A00402982 /* SceneDelegate.swift */; };
 		93137D9D25CC127A00402982 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137D9C25CC127A00402982 /* ViewController.swift */; };
@@ -31,21 +27,24 @@
 		93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2225CC220B00402982 /* AppEnvironment.swift */; };
 		93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E2A25CC241C00402982 /* DevicesViewController.swift */; };
 		93137E3325CC258000402982 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93137E3225CC258000402982 /* Dashboard.swift */; };
-		9356D6FD25FB7E140087B3F6 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D6FC25FB7E140087B3F6 /* PersistentStorage.swift */; };
-		9356D70325FB81B40087B3F6 /* PersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D70225FB81B40087B3F6 /* PersistentStorageTests.swift */; };
-		9374405825D1FC34007F17D3 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374405725D1FC34007F17D3 /* DeviceModel.swift */; };
+		9349163A2603C89000D1D48E /* RxSmartHomeM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 934916382603C89000D1D48E /* RxSmartHomeM.xcdatamodeld */; };
+		934ED545260CB094007CB0DE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934ED544260CB094007CB0DE /* CoreDataStack.swift */; };
+		9356D6FD25FB7E140087B3F6 /* LocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D6FC25FB7E140087B3F6 /* LocalDataRepository.swift */; };
+		9356D70325FB81B40087B3F6 /* LocalDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356D70225FB81B40087B3F6 /* LocalDataRepositoryTests.swift */; };
+		9361D93F260CA66E0064ACDA /* DeviceCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9361D93E260CA66E0064ACDA /* DeviceCD.swift */; };
+		937A6D27260AA0AC00B4C6EA /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937A6D26260AA0AC00B4C6EA /* DeviceModel.swift */; };
 		9382956025D5E1B4005FD3EA /* Cime in Resources */ = {isa = PBXBuildFile; fileRef = 9382955F25D5E1B4005FD3EA /* Cime */; };
-		938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94BC25E648110055D143 /* ApiNetworkTests.swift */; };
+		938B94BD25E648110055D143 /* WebDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938B94BC25E648110055D143 /* WebDataRepositoryTests.swift */; };
 		93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1F99625E7E4790017DCBC /* DeviceModelTests.swift */; };
 		93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1F9A225E816500017DCBC /* DevicesInteractorTests.swift */; };
 		93A642DA25D1B26C0071A8DA /* DevicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */; };
-		93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */; };
-		93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DevicesRepo.swift */; };
+		93A642E225D1B3200071A8DA /* DataManagerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E125D1B3200071A8DA /* DataManagerRepository.swift */; };
 		93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */; };
-		93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */; };
+		93A642F025D1D5EB0071A8DA /* WebDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A642EF25D1D5EB0071A8DA /* WebDataRepository.swift */; };
 		93C3008D25FA280500E66E0B /* ApiNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3008C25FA280500E66E0B /* ApiNetworkError.swift */; };
 		93C3009125FA3B4700E66E0B /* DevicesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3009025FA3B4700E66E0B /* DevicesViewModelTests.swift */; };
-		93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */; };
+		93DCC6E825DB1F790056B2E2 /* DataManagerRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DCC6E725DB1F790056B2E2 /* DataManagerRepositoryTests.swift */; };
+		93EC73432609FBB10031D1A4 /* StubDataManagerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EC73422609FBB10031D1A4 /* StubDataManagerRepository.swift */; };
 		93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */; };
 		93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */; };
 		93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */; };
@@ -86,14 +85,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		930B153D25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		930B153E25FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		93137D9525CC127A00402982 /* RxSmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93137D9825CC127A00402982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93137D9A25CC127A00402982 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		93137D9C25CC127A00402982 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93137D9F25CC127A00402982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		93137DA225CC127A00402982 /* RxSmartHome.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxSmartHome.xcdatamodel; sourceTree = "<group>"; };
 		93137DA425CC127B00402982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = RxSmartHome/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		93137DA725CC127B00402982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93137DA925CC127B00402982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,21 +109,24 @@
 		93137E2225CC220B00402982 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		93137E2A25CC241C00402982 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		93137E3225CC258000402982 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
-		9356D6FC25FB7E140087B3F6 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistentStorage.swift; path = "RxSmartHome/⚙️Domain/Repo Interfaces/PersistentStorage.swift"; sourceTree = SOURCE_ROOT; };
-		9356D70225FB81B40087B3F6 /* PersistentStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorageTests.swift; sourceTree = "<group>"; };
-		9374405725D1FC34007F17D3 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		934916392603C89000D1D48E /* RxSmartHomeM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxSmartHomeM.xcdatamodel; sourceTree = "<group>"; };
+		934ED544260CB094007CB0DE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9356D6FC25FB7E140087B3F6 /* LocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalDataRepository.swift; path = "RxSmartHome/📟Data/Persistent/LocalDataRepository.swift"; sourceTree = SOURCE_ROOT; };
+		9356D70225FB81B40087B3F6 /* LocalDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataRepositoryTests.swift; sourceTree = "<group>"; };
+		9361D93E260CA66E0064ACDA /* DeviceCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCD.swift; sourceTree = "<group>"; };
+		937A6D26260AA0AC00B4C6EA /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		9382955F25D5E1B4005FD3EA /* Cime */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cime; sourceTree = "<group>"; };
-		938B94BC25E648110055D143 /* ApiNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkTests.swift; sourceTree = "<group>"; };
+		938B94BC25E648110055D143 /* WebDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDataRepositoryTests.swift; sourceTree = "<group>"; };
 		93A1F99625E7E4790017DCBC /* DeviceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModelTests.swift; sourceTree = "<group>"; };
 		93A1F9A225E816500017DCBC /* DevicesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractorTests.swift; sourceTree = "<group>"; };
 		93A642D925D1B26C0071A8DA /* DevicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesInteractor.swift; sourceTree = "<group>"; };
-		93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDevicesRepo.swift; sourceTree = "<group>"; };
-		93A642E125D1B3200071A8DA /* DevicesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepo.swift; sourceTree = "<group>"; };
+		93A642E125D1B3200071A8DA /* DataManagerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerRepository.swift; sourceTree = "<group>"; };
 		93A642E525D1B36F0071A8DA /* DevicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModel.swift; sourceTree = "<group>"; };
-		93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetwork.swift; sourceTree = "<group>"; };
+		93A642EF25D1D5EB0071A8DA /* WebDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDataRepository.swift; sourceTree = "<group>"; };
 		93C3008C25FA280500E66E0B /* ApiNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiNetworkError.swift; sourceTree = "<group>"; };
 		93C3009025FA3B4700E66E0B /* DevicesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewModelTests.swift; sourceTree = "<group>"; };
-		93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesRepoTests.swift; sourceTree = "<group>"; };
+		93DCC6E725DB1F790056B2E2 /* DataManagerRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerRepositoryTests.swift; sourceTree = "<group>"; };
+		93EC73422609FBB10031D1A4 /* StubDataManagerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDataManagerRepository.swift; sourceTree = "<group>"; };
 		93F0D8AF25CC2E5D004BE652 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		93F0D8B325CC3067004BE652 /* FiltersCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCVCell.swift; sourceTree = "<group>"; };
 		93F0D8B725CC3BA7004BE652 /* DevicesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCVCell.swift; sourceTree = "<group>"; };
@@ -236,7 +235,6 @@
 			children = (
 				93137E1725CC211200402982 /* AppScene */,
 				93137DDE25CC142A00402982 /* DevicesScene */,
-				93137DDF25CC143E00402982 /* UserScene */,
 				93137DE325CC147300402982 /* Utils */,
 			);
 			path = "👁Presentation";
@@ -246,8 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				93137DE425CC14B800402982 /* UseCases-Interactor */,
-				93137DE525CC14CA00402982 /* Entities */,
-				93137DE625CC151C00402982 /* Repo Interfaces */,
+				931D84F026038E400016C2A9 /* Entities */,
 				93137DE725CC152D00402982 /* Models */,
 			);
 			path = "⚙️Domain";
@@ -256,9 +253,10 @@
 		93137DD525CC139C00402982 /* 📟Data */ = {
 			isa = PBXGroup;
 			children = (
+				934ED543260CB084007CB0DE /* Services */,
 				93137DE825CC155800402982 /* Repo impl */,
-				93137DE925CC156D00402982 /* Persistent Storage */,
 				93137DEA25CC158400402982 /* Networking */,
+				931D84ED26038DCB0016C2A9 /* Persistent */,
 			);
 			path = "📟Data";
 			sourceTree = "<group>";
@@ -269,13 +267,6 @@
 				93137DE025CC145200402982 /* Devices */,
 			);
 			path = DevicesScene;
-			sourceTree = "<group>";
-		};
-		93137DDF25CC143E00402982 /* UserScene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserScene;
 			sourceTree = "<group>";
 		};
 		93137DE025CC145200402982 /* Devices */ = {
@@ -320,27 +311,11 @@
 			path = "UseCases-Interactor";
 			sourceTree = "<group>";
 		};
-		93137DE525CC14CA00402982 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				930B153D25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift */,
-				930B153E25FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		93137DE625CC151C00402982 /* Repo Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				93A642DD25D1B2E20071A8DA /* IDevicesRepo.swift */,
-			);
-			path = "Repo Interfaces";
-			sourceTree = "<group>";
-		};
 		93137DE725CC152D00402982 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9374405725D1FC34007F17D3 /* DeviceModel.swift */,
+				937A6D26260AA0AC00B4C6EA /* DeviceModel.swift */,
+				9361D93E260CA66E0064ACDA /* DeviceCD.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,23 +323,15 @@
 		93137DE825CC155800402982 /* Repo impl */ = {
 			isa = PBXGroup;
 			children = (
-				93A642E125D1B3200071A8DA /* DevicesRepo.swift */,
+				93A642E125D1B3200071A8DA /* DataManagerRepository.swift */,
 			);
 			path = "Repo impl";
-			sourceTree = "<group>";
-		};
-		93137DE925CC156D00402982 /* Persistent Storage */ = {
-			isa = PBXGroup;
-			children = (
-				9356D6FC25FB7E140087B3F6 /* PersistentStorage.swift */,
-			);
-			path = "Persistent Storage";
 			sourceTree = "<group>";
 		};
 		93137DEA25CC158400402982 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				93A642EF25D1D5EB0071A8DA /* ApiNetwork.swift */,
+				93A642EF25D1D5EB0071A8DA /* WebDataRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -388,10 +355,10 @@
 			children = (
 				93137DA625CC127B00402982 /* LaunchScreen.storyboard */,
 				93137DA925CC127B00402982 /* Info.plist */,
-				93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */,
 				93137D9C25CC127A00402982 /* ViewController.swift */,
 				93137D9E25CC127A00402982 /* Main.storyboard */,
 				93137DA425CC127B00402982 /* Assets.xcassets */,
+				934916382603C89000D1D48E /* RxSmartHomeM.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -434,6 +401,29 @@
 			path = AppScene;
 			sourceTree = "<group>";
 		};
+		931D84ED26038DCB0016C2A9 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				9356D6FC25FB7E140087B3F6 /* LocalDataRepository.swift */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
+		931D84F026038E400016C2A9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		934ED543260CB084007CB0DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				934ED544260CB094007CB0DE /* CoreDataStack.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9374406C25D29251007F17D3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,11 +444,20 @@
 		9374406E25D29262007F17D3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				93DCC6E725DB1F790056B2E2 /* DevicesRepoTests.swift */,
-				938B94BC25E648110055D143 /* ApiNetworkTests.swift */,
-				9356D70225FB81B40087B3F6 /* PersistentStorageTests.swift */,
+				937A6D13260A7A6400B4C6EA /* Model */,
+				93EC73412609FB9E0031D1A4 /* Mock */,
+				93DCC6E725DB1F790056B2E2 /* DataManagerRepositoryTests.swift */,
+				938B94BC25E648110055D143 /* WebDataRepositoryTests.swift */,
+				9356D70225FB81B40087B3F6 /* LocalDataRepositoryTests.swift */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		937A6D13260A7A6400B4C6EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		93C3008B25FA27DB00E66E0B /* Common */ = {
@@ -467,6 +466,14 @@
 				93C3008C25FA280500E66E0B /* ApiNetworkError.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		93EC73412609FB9E0031D1A4 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				93EC73422609FBB10031D1A4 /* StubDataManagerRepository.swift */,
+			);
+			name = Mock;
 			sourceTree = "<group>";
 		};
 		93F0D8AC25CC2DE1004BE652 /* Cell */ = {
@@ -654,22 +661,21 @@
 				93A642E625D1B36F0071A8DA /* DevicesViewModel.swift in Sources */,
 				93F0D8B825CC3BA7004BE652 /* DevicesCVCell.swift in Sources */,
 				93137E2B25CC241C00402982 /* DevicesViewController.swift in Sources */,
+				937A6D27260AA0AC00B4C6EA /* DeviceModel.swift in Sources */,
 				93137E2325CC220B00402982 /* AppEnvironment.swift in Sources */,
-				93A642F025D1D5EB0071A8DA /* ApiNetwork.swift in Sources */,
+				93A642F025D1D5EB0071A8DA /* WebDataRepository.swift in Sources */,
 				93F0D8B425CC3067004BE652 /* FiltersCVCell.swift in Sources */,
-				930B153F25FBD2A900F8117A /* DeviceEntity+CoreDataClass.swift in Sources */,
-				9356D6FD25FB7E140087B3F6 /* PersistentStorage.swift in Sources */,
+				9361D93F260CA66E0064ACDA /* DeviceCD.swift in Sources */,
+				9356D6FD25FB7E140087B3F6 /* LocalDataRepository.swift in Sources */,
 				93F0D8B025CC2E5D004BE652 /* Extension+UIColor.swift in Sources */,
-				93A642DE25D1B2E20071A8DA /* IDevicesRepo.swift in Sources */,
+				9349163A2603C89000D1D48E /* RxSmartHomeM.xcdatamodeld in Sources */,
 				93137E3325CC258000402982 /* Dashboard.swift in Sources */,
 				93137E1F25CC21B600402982 /* AppDIBuilder.swift in Sources */,
-				930B154525FC2B7600F8117A /* RxSmartHome.xcdatamodeld in Sources */,
+				934ED545260CB094007CB0DE /* CoreDataStack.swift in Sources */,
 				93137D9D25CC127A00402982 /* ViewController.swift in Sources */,
-				9374405825D1FC34007F17D3 /* DeviceModel.swift in Sources */,
 				93137D9925CC127A00402982 /* AppDelegate.swift in Sources */,
 				93137D9B25CC127A00402982 /* SceneDelegate.swift in Sources */,
-				930B154025FBD2A900F8117A /* DeviceEntity+CoreDataProperties.swift in Sources */,
-				93A642E225D1B3200071A8DA /* DevicesRepo.swift in Sources */,
+				93A642E225D1B3200071A8DA /* DataManagerRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,12 +685,12 @@
 			files = (
 				93137DB325CC127B00402982 /* RxSmartHomeTests.swift in Sources */,
 				93A1F99725E7E4790017DCBC /* DeviceModelTests.swift in Sources */,
-				930B154825FC2B7700F8117A /* RxSmartHome.xcdatamodeld in Sources */,
 				93A1F9A325E816500017DCBC /* DevicesInteractorTests.swift in Sources */,
-				93DCC6E825DB1F790056B2E2 /* DevicesRepoTests.swift in Sources */,
-				9356D70325FB81B40087B3F6 /* PersistentStorageTests.swift in Sources */,
+				93DCC6E825DB1F790056B2E2 /* DataManagerRepositoryTests.swift in Sources */,
+				9356D70325FB81B40087B3F6 /* LocalDataRepositoryTests.swift in Sources */,
+				93EC73432609FBB10031D1A4 /* StubDataManagerRepository.swift in Sources */,
 				93C3009125FA3B4700E66E0B /* DevicesViewModelTests.swift in Sources */,
-				938B94BD25E648110055D143 /* ApiNetworkTests.swift in Sources */,
+				938B94BD25E648110055D143 /* WebDataRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,13 +1021,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		93137DA125CC127A00402982 /* RxSmartHome.xcdatamodeld */ = {
+		934916382603C89000D1D48E /* RxSmartHomeM.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				93137DA225CC127A00402982 /* RxSmartHome.xcdatamodel */,
+				934916392603C89000D1D48E /* RxSmartHomeM.xcdatamodel */,
 			);
-			currentVersion = 93137DA225CC127A00402982 /* RxSmartHome.xcdatamodel */;
-			path = RxSmartHome.xcdatamodeld;
+			currentVersion = 934916392603C89000D1D48E /* RxSmartHomeM.xcdatamodel */;
+			path = RxSmartHomeM.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

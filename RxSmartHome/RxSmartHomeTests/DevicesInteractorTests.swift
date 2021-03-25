@@ -1,8 +1,4 @@
-//
-//  DevicesInteractorTests.swift
-//  RxSmartHomeTests
-//
-//  Created by Eddy R on 25/02/2021.
+// Interactor
 
 import XCTest
 @testable import RxSmartHome
@@ -21,50 +17,78 @@ class DevicesInteractorTests: XCTestCase {
     	XCTAssertNotNil(sut)
     }
     func test_GivenRepo_whenInit_thenRepoNotNil() {
-        XCTAssertNotNil(sut.devicesRepository)
+        XCTAssertNotNil(sut.dataManagerRepository)
     }
-    func test_GivenRepo_whenGetDevicesWithSuccess_thenDeviceObj() {
-        let exp = expectation(description: "expected : data")
+
+    // 01 : stub
+    func test_GivenDataM_whenGetDevicesWithSuccess_thenGetArrayOfDeviceWithOneDevice() {
+        // given
+        let stubDataManagerRepository = StubDataManagerRepository() // stub
+        stubDataManagerRepository.nextData = [Device(id: 0, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)]
+        sut.dataManagerRepository = stubDataManagerRepository
+
+
+		// when
+        let exp = expectation(description: "expected : devices array")
+        // INTERACTOR
         sut.getDevices { devicesList in
+            // then
             XCTAssertNotNil(devicesList)
+            XCTAssertEqual(devicesList, [Device(id: 0, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)])
             exp.fulfill()
         }
         wait(for: [exp], timeout: 0.05)
     }
-    func test_GivenRepo_whenGetDevicesWtthFail_thenReturnAnEmptyArrayOfDevices() {
-        let exp = expectation(description: "expected : should return array of device")
-        let stubDevicesRepo: StubDevicesRepo = StubDevicesRepo()
-        stubDevicesRepo.nextData = nil
-        sut.devicesRepository = stubDevicesRepo
-        sut.getDevices { deviceList in
-            XCTAssertTrue(deviceList.isEmpty)
+    func test_GivenDataM_whenGetDevicesWithSuccess_thenGetArrayOfDeviceWithTwoDevices() {
+        // given
+        let stubDataManagerRepository = StubDataManagerRepository() // stub
+        stubDataManagerRepository.nextData = [
+            Device(id: 0, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil),
+            Device(id: 1, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)
+        ]
+        sut.dataManagerRepository = stubDataManagerRepository
+
+
+        // when
+        let exp = expectation(description: "expected : devices array")
+        // INTERACTOR
+        sut.getDevices { devicesList in
+            // then
+            XCTAssertNotNil(devicesList)
+            let expectedArrayOfdevice = [
+                Device(id: 0, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil),
+            	Device(id: 1, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: nil)
+            ]
+            XCTAssertEqual(devicesList, expectedArrayOfdevice)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 0.05)
     }
-    func test_GivenRepoWithFakeData_whenGetDevice_thenReturnDataWithOneDeviceObjc() {
+    func test_GivenDataM_whenGetDevicesWithAProblem_thenGetAnEmptyArray() {
 		// given
-        let expectedDeviceArray = [Device(id: 2, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: 1)]
-		let nextDataToPass = DeviceModel(devices: [Device(id: 2, deviceName: nil, productType: nil, intensity: nil, mode: nil, position: nil, temperature: 1)], user: nil)
-        let stubDevicesRepo = StubDevicesRepo()
-        stubDevicesRepo.nextData = nextDataToPass
+        let stubDataManagerRepository: StubDataManagerRepository = StubDataManagerRepository()
+        stubDataManagerRepository.nextData = nil
+        sut.dataManagerRepository = stubDataManagerRepository
 
-        sut.devicesRepository = stubDevicesRepo
-
-        // when call interactor.getDevice => array of device
-        let exp = expectation(description: "expected : should return ArrayWith 1 objc")
-        sut.getDevices { deviceArrayB in
-            // get back deviceArray
-            XCTAssertEqual(deviceArrayB, expectedDeviceArray)
+        // when
+        let exp = expectation(description: "expected: empty array of device")
+        sut.getDevices { (deviceArray) in
+            // then
+            XCTAssertTrue(deviceArray.isEmpty)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 0.05)
     }
 }
 
-class StubDevicesRepo: IDevicesRepo {
-    var nextData: DeviceModel?
-    func getDataDevices(completion: @escaping (DeviceModel?) -> Void) {
-		completion(nextData)
-    }
-}
+/*
+ Interactor
+ getDevice -> [Device]
+ DateManagor
+ getDevice ( fetch Web + save and fetch CoreData) -> [Device]
+ webRepo
+ fetchDevice -> ObjcDevice
+ localRepo
+ saveDevice -> Void
+ FetchDevice -> Device
+ */

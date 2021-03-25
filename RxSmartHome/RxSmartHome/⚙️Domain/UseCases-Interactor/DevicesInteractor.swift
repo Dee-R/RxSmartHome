@@ -10,17 +10,20 @@ protocol IDevicesInteractor {
 
 // ⛔️⛔️
 class DevicesInteractor: IDevicesInteractor {
-    var devicesRepository: IDevicesRepo
+    var dataManagerRepository: IDataManagerRepository
     init() {
-        devicesRepository = DevicesRepo()
+        dataManagerRepository = DataManagerRepository()
     }
     func getDevices(completion: @escaping ([Device]) -> Void) {
-        devicesRepository.getDataDevices { (deviceModelObjc) in
-            if let deviceArray = deviceModelObjc?.devices {
-                completion(deviceArray)
-            } else {
-				completion([])
-            }
+        dataManagerRepository.getDataDevices { devices in
+			completion(devices)
         }
     }
 }
+
+// 01 fetch data objc from
+// 02 bring back here
+// 03 take only the device array
+// 04 save it in core data
+// 05 fetcj it from core data
+// 06 send it back to the sender

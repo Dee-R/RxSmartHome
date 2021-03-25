@@ -10,6 +10,69 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    // NamePersitentViewContainer
+    static var namePersitentContainer: String {
+        return "RxSmartHomeM"
+    }
+
+    // Container
+    static var persitentContainer: NSPersistentContainer? {
+        guard let appD = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        return appD.persitentContainer
+    }
+
+	// Context
+    static var viewContext: NSManagedObjectContext? {
+        guard let unwViewContext = persitentContainer?.viewContext else { return nil }
+		return unwViewContext
+    }
+
+    // Description
+    static var pathSql: [NSPersistentStoreDescription]? {
+        guard let unwDescription = persitentContainer?.persistentStoreDescriptions else { return nil }
+        return unwDescription
+    }
+
+    // MARK: - Cloud
+//    lazy var persistentContainerCloud: NSPersistentCloudKitContainer = {
+//        /*
+//         The persistent container for the application. This implementation
+//         creates and returns a container, having loaded the store for the
+//         application to it. This property is optional since there are legitimate
+//         error conditions that could cause the creation of the store to fail.
+//         */
+//        let container = NSPersistentCloudKitContainer(name: "RxSmartHomeM")
+//        container.loadPersistentStores(completionHandler: { (_, error) in
+//            if let error = error as NSError? {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//
+//                /*
+//                 Typical reasons for an error here include:
+//                 * The parent directory does not exist, cannot be created, or disallows writing.
+//                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+//                 * The device is out of space.
+//                 * The store could not be migrated to the current model version.
+//                 Check the error message to determine what the actual problem was.
+//                 */
+//                fatalError("Unresolved error \(error), \(error.userInfo)")
+//            }
+//        })
+//        return container
+//    }()
+    lazy var persitentContainer: NSPersistentContainer = {
+        // lazy doesn't run code until access for the first time
+        let container = NSPersistentContainer(name: AppDelegate.namePersitentContainer)
+        container.loadPersistentStores { ( _, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        return container
+    }()
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -26,56 +89,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     func applicationDidEnterBackground(_ application: UIApplication) { }
-
-    // MARK: - Cloud
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentCloudKitContainer(name: "RxSmartHome")
-        container.loadPersistentStores(completionHandler: { (_, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    lazy var persitentContainerCD: NSPersistentContainer = {
-        // lazy doesn't run code until access for the first time
-        let container = NSPersistentContainer(name: "RxSmartHome")
-        container.loadPersistentStores { ( _, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        }
-        return container
-    }()
-    func saveContext () {
-        // get the context and save it wheather any change is occured
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 }

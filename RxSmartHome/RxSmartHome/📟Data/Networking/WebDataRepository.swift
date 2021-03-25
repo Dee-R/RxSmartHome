@@ -2,12 +2,12 @@
 import Foundation
 
 // 👁👁🤝 Proper protocol
-protocol IApiNetwork {
+protocol IWebDataRepository {
     func fetch(url: String, completion: @escaping(Result<DeviceModel, Error>) -> Void)
 }
 
 // ⛔️⛔️ Engine
-class ApiNetwork: NSObject, IApiNetwork {
+class WebDataRepository: NSObject, IWebDataRepository {
     var session: IURLSession
     var dataTask: IURLSessionDataTask?
     override init() {

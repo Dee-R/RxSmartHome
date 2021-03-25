@@ -8,6 +8,4 @@
 import XCTest
 @testable import RxSmartHome
 
-class DeviceModelTests: XCTestCase {
-
-}
+class DeviceModelTests: XCTestCase { }

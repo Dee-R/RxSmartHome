@@ -3,15 +3,15 @@
 import XCTest
 @testable import RxSmartHome
 
-class ApiNetworkTests: XCTestCase {
-    var sut: ApiNetwork!
+class WebDataRepositoryTests: XCTestCase {
+    var sut: WebDataRepository!
     var mockURLSession: MockURLSession!
     var mockURLSessionDataTask: MockURLSessionDataTask!
     var urlGood = "http://storage42.com/modulotest/data.json"
     var urlBad = ""
     override func setUp() {
         super.setUp()
-        sut = ApiNetwork()
+        sut = WebDataRepository()
         mockURLSession = MockURLSession()
         mockURLSessionDataTask = MockURLSessionDataTask()
     }
