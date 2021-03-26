@@ -7,4 +7,5 @@ import Foundation
 enum ApiNetworkError: Error {
     case url
     case parse
+    case fetching
 }

@@ -10,7 +10,7 @@ protocol IDataManagerRepository {
 // ⛔️⛔️
 class DataManagerRepository: IDataManagerRepository {
     var webDataRepository: IWebDataRepository
-//    var url: String = "http://storage42.com/modulotest/data.json"
+    var url: String = "http://storage42.com/modulotest/data.json"
     init() {
         webDataRepository = WebDataRepository()
     }
@@ -18,6 +18,14 @@ class DataManagerRepository: IDataManagerRepository {
     func getDataDevices(completion: @escaping ([Device]) -> Void) {
         // TODO: See below
         // get objcModel from web
+        webDataRepository.fetch(url: url) { result in
+            do {
+                let objcDeviceModel = try result.get()
+				
+            } catch let error as NSError {
+                print("██░░░ L\(#line) 🚧🚧 err : \(error), \(error.userInfo) 🚧🚧 ",String(describing: self),#function)
+            }
+        }
         // parse it
         // save into CoreData
         // fetch from CoreData

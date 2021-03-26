@@ -30,6 +30,34 @@ class DataManagerRepositoryTests: XCTestCase {
         wait(for: [exp], timeout: 0.05)
     }
 
+    // Call webRepo
+    func test_GivenWebDataRepo_whenFetchWithUrlWithSuccess_thenGetDataNotNil() {
+        sut.webDataRepository = MockWebDataRepository()
+        let exp = expectation(description: "expected : data not nil")
+        sut.webDataRepository.fetch(url: "test") { result in
+            let objc = try? result.get()
+            XCTAssertNotNil(objc)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 0.05)
+    }
+    func test_GivenWebDataRepo_whenFetchWithUrlWithSuccess_thenGetError() {
+        let mockWeb: MockWebDataRepository = MockWebDataRepository()
+        mockWeb.isSuccess = false
+        sut.webDataRepository = mockWeb
+        let exp = expectation(description: "expected : data not nil")
+        sut.webDataRepository.fetch(url: "test") { result in
+            do {
+                _ = try result.get()
+                XCTFail("should not succed")
+            } catch let error as NSError {
+                XCTAssertNotNil(error)
+                exp.fulfill()
+            }
+        }
+        wait(for: [exp], timeout: 0.05)
+    }
+
     // parsing
     func test_GivenObjectModel_whenParseObjcModel_thenGetArrayOfDevice() {
         let objcDevice01 = Device(id: 0, deviceName: "Light", productType: .heater, intensity: nil, mode: nil, position: nil, temperature: nil)
@@ -47,5 +75,16 @@ class DataManagerRepositoryTests: XCTestCase {
         let objcDeviceModel: DeviceModel = DeviceModel(devices: [], user: nil)
         let actual = sut.parseObjcModel(objcDeviceModel)
         XCTAssertEqual(actual, [])
+    }
+}
+
+class MockWebDataRepository: IWebDataRepository {
+    var isSuccess = true
+    func fetch(url: String, completion: @escaping (Result<DeviceModel, Error>) -> Void) {
+        if isSuccess {
+            completion(.success(DeviceModel(devices: nil, user: nil)))
+        } else {
+            completion(.failure(ApiNetworkError.fetching))
+        }
     }
 }
