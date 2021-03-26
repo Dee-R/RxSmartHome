@@ -10,16 +10,19 @@ protocol IWebDataRepository {
 class WebDataRepository: NSObject, IWebDataRepository {
     var session: IURLSession
     var dataTask: IURLSessionDataTask?
+
     override init() {
         session = URLSession.shared
         //        dataTask = URLSessionDataTask()
     }
+
     func fetch(url: String, completion: @escaping(Result<DeviceModel, Error>) -> Void) {
+		// url
         guard let unwUrl = URL(string: url) else { completion(.failure(ApiNetworkError.url));return }
+
         // session
         dataTask = session.dataTaskCustom(with: unwUrl) {[weak self] (data, _, _) in
-            guard let this = self else {return} // this
-            let data: DeviceModel? = this.parse(data) // parse data
+            let data: DeviceModel? = self?.parse(data) // parse data
             guard let unwDeviceModel = data else { return } // unwrap it
             completion(.success(unwDeviceModel)) // send it back with success
         }
@@ -31,6 +34,11 @@ class WebDataRepository: NSObject, IWebDataRepository {
         return dataParsed
     }
 }
+
+protocol IURLSessionDataTask {
+    func resume()
+}
+extension URLSessionDataTask: IURLSessionDataTask {}
 protocol IURLSession {
     func dataTaskCustom(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> IURLSessionDataTask
 }
@@ -39,8 +47,3 @@ extension URLSession: IURLSession {
         dataTask(with: url, completionHandler: completionHandler) as IURLSessionDataTask
     }
 }
-
-protocol IURLSessionDataTask {
-    func resume()
-}
-extension URLSessionDataTask: IURLSessionDataTask {}

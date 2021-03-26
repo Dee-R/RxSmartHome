@@ -1,9 +1,5 @@
-//
 //  AppDelegate.swift
 //  RxSmartHome
-//
-//  Created by Eddy R on 04/02/2021.
-//
 
 import UIKit
 import CoreData

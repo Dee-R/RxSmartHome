@@ -75,6 +75,7 @@ class WebDataRepositoryTests: XCTestCase {
 		// then
         XCTAssertEqual(mockURLSessionDataTask.getCalled, 1)
     }
+
     // Parsing
     func test_GivenSpecificData_whenParse_thenGetSameData() {
 		// dataParsed
@@ -180,7 +181,6 @@ class MockURLSession: IURLSession {
         getCalled += 1
         return nextDataTask
     }
-
 }
 class MockURLSessionDataTask: URLSessionDataTask {
     var getCalled: Int = 0
